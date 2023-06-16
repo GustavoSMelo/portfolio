@@ -25,6 +25,10 @@ export const Container = styled.main`
         color: ${vars.colors.aurora.green};
     }
 
+    form > input {
+        width: 50%;
+    }
+
     form > input:focus {
         outline: none;
     }

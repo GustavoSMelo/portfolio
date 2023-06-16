@@ -1,25 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ASCArt from '../../components/terminal/ascName';
 import { Container, TerminalAlert } from './terminal.style';
+import Commands from '../../components/terminal/commands/commands';
+import convertStringToCommandBin from '../../helper/convertStringToCommandBin';
+import Error from '../../components/terminal/commands/errors';
 
 const Terminal = () => {
-    const execCommand = (event: React.KeyboardEvent<HTMLInputElement>) => {
-        event.key === 'Enter' && event.preventDefault();
+    const [commandResult, setCommandResult] = useState(<></>);
+    const [bin, setBin] = useState('');
+
+    const execCommand = (event: React.KeyboardEvent<HTMLInputElement>): void => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+
+            const helper = convertStringToCommandBin(bin);
+            setBin('');
+
+            if (helper === 'clear') {
+                setCommandResult(<></>);
+                return;
+            } else if (helper === 'error') {
+                setCommandResult(<>{commandResult} {<Error />}</>);
+                return;
+            }
+            setCommandResult(<>{commandResult} {<Commands bin={helper} />}</>);
+        }
     };
 
-    const renderLine = () => {
+    const renderLine = (): JSX.Element => {
         return (
-            <form>
-                <label>
-                    <p className='userName'>
-                        <span>[</span> guest
-                    </p>
-                    <p className='host'>
-                        <span>@</span>GustavoSMelo-portfolio <span>] $</span>
-                    </p>
-                </label>
-                <input type='text' autoFocus onKeyDown={(event) => execCommand(event)} />
-            </form>
+            <>
+                {commandResult}
+                <form>
+                    <label>
+                        <p className='userName'>
+                            <span>[</span> guest
+                        </p>
+                        <p className='host'>
+                            <span>@</span>GustavoSMelo-portfolio <span>] $</span>
+                        </p>
+                    </label>
+                    <input type='text' value={bin} autoFocus onKeyDown={(event) => execCommand(event)} onChange={e => setBin(e.target.value)} />
+                </form>
+            </>
         );
     };
 
