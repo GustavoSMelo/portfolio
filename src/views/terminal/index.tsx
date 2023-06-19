@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import ASCArt from '../../components/terminal/ascName';
 import { Container, TerminalAlert } from './terminal.style';
-import Commands from '../../components/terminal/commands/commands';
+import Commands from '../../components/terminal/commands';
 import convertStringToCommandBin from '../../helper/convertStringToCommandBin';
-import Error from '../../components/terminal/commands/errors';
+import Error from '../../components/terminal/commands/content/errors';
 
 const Terminal = () => {
     const [commandResult, setCommandResult] = useState(<></>);
     const [bin, setBin] = useState('');
 
-    const execCommand = (event: React.KeyboardEvent<HTMLInputElement>): void => {
+    const execCommand = (
+        event: React.KeyboardEvent<HTMLInputElement>
+    ): void => {
         if (event.key === 'Enter') {
             event.preventDefault();
 
@@ -20,10 +22,18 @@ const Terminal = () => {
                 setCommandResult(<></>);
                 return;
             } else if (helper === 'error') {
-                setCommandResult(<>{commandResult} {<Error />}</>);
+                setCommandResult(
+                    <>
+                        {commandResult} {<Error />}
+                    </>
+                );
                 return;
             }
-            setCommandResult(<>{commandResult} {<Commands bin={helper} />}</>);
+            setCommandResult(
+                <>
+                    {commandResult} {<Commands bin={helper} />}
+                </>
+            );
         }
     };
 
@@ -37,10 +47,19 @@ const Terminal = () => {
                             <span>[</span> guest
                         </p>
                         <p className='host'>
-                            <span>@</span>GustavoSMelo-portfolio <span>] $</span>
+                            <span>@</span>GustavoSMelo-portfolio{' '}
+                            <span>] $</span>
                         </p>
                     </label>
-                    <input type='text' value={bin} autoFocus onKeyDown={(event) => execCommand(event)} onChange={e => setBin(e.target.value)} />
+                    <input
+                        className='commandInput'
+                        type='text'
+                        value={bin}
+                        placeholder='Click here to type a command...'
+                        autoFocus
+                        onKeyDown={(event) => execCommand(event)}
+                        onChange={(e) => setBin(e.target.value)}
+                    />
                 </form>
             </>
         );
@@ -52,9 +71,12 @@ const Terminal = () => {
             <p>
                 Welcome To my portfolio :D <br />
                 ------- <br />
-                To use, please use the command: <TerminalAlert>help</TerminalAlert> to see the command list <br />
+                To use, please use the command:{' '}
+                <TerminalAlert>help</TerminalAlert> to see the command list{' '}
+                <br />
                 ------- <br />
-                But if you want to see a GUI portfolio version you can click here
+                But if you want to see a GUI portfolio version you can click
+                here
             </p>
             {renderLine()}
         </Container>

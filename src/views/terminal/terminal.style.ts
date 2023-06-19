@@ -31,6 +31,11 @@ export const Container = styled.main`
 
     form > input:focus {
         outline: none;
+
+    }
+
+    form > input:focus::placeholder {
+        color: transparent;
     }
 `;
 

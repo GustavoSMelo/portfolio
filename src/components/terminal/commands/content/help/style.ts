@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import vars from '../../../../global/style/vars.style';
+import vars from '../../../../../global/style/vars.style';
 
 export const Container = styled.table`
     .commandDescriptionTitle {

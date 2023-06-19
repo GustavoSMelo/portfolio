@@ -10,4 +10,5 @@ export enum ECommand {
     personal = 'personal',
     contact = 'contact',
     clear = 'clear',
+    theme = 'theme'
 }

@@ -10,5 +10,6 @@ export interface ICommand {
         | 'socialmedia'
         | 'personal'
         | 'contact'
-        | 'clear';
+        | 'clear'
+        | 'theme';
 }
