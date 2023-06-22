@@ -1,5 +1,5 @@
 import { IList } from '../../../../types/interface/components/list.interface';
-import { About, Education, Experience, SocialMedia, Help, Personal, Theme, Gui, Contact } from '../exports';
+import { About, Education, Experience, SocialMedia, Help, Personal, Gui } from '../exports';
 
 const returnCommandList = (): IList[] => {
     return [
