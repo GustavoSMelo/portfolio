@@ -1,4 +1,4 @@
 export interface IThemeContext {
-    theme: string;
-    setTheme: React.Dispatch<React.SetStateAction<string>>;
+    theme: 'light' | 'dark';
+    setTheme: React.Dispatch<React.SetStateAction<'light' | 'dark'>>;
 }

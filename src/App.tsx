@@ -6,7 +6,7 @@ import LangContext from './global/context/language.context';
 import { ELangs } from './global/enum/langs.enum';
 
 const App = () => {
-    const [theme, setTheme] = useState('dark');
+    const [theme, setTheme] = useState<'dark' | 'light'>('dark');
     const [lang, setLang] = useState(ELangs.ENG);
 
     return (

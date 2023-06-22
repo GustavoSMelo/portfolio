@@ -5,7 +5,9 @@ const Commands = ({ bin } : ICommand) => {
     const exec = () => {
         const commands = returnCommandList();
 
-        return commands.find(command => command.name === bin)?.component || <></>;
+        const helper = commands.find(command => command.name === bin)?.component || <></>;
+
+        return helper
     }
 
     return exec();

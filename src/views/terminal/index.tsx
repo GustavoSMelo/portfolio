@@ -69,7 +69,7 @@ const Terminal = () => {
         <Container>
             <ASCArt />
             <p>
-                Welcome To my portfolio :D <br />
+                Welcome to my portfolio :D <br />
                 ------- <br />
                 To use, please use the command:{' '}
                 <TerminalAlert>help</TerminalAlert> to see the command list{' '}

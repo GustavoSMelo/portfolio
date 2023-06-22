@@ -1,6 +1,5 @@
 import { IList } from '../../../../types/interface/components/list.interface';
-import { About, Education, Experience, SocialMedia, Version, Help, Personal } from '../exports';
-import Theme from './theme';
+import { About, Education, Experience, SocialMedia, Help, Personal, Theme, Gui, Contact } from '../exports';
 
 const returnCommandList = (): IList[] => {
     return [
@@ -10,14 +9,9 @@ const returnCommandList = (): IList[] => {
             component: <Help />,
         },
         {
-            name: 'version',
-            description: 'Show version information',
-            component: <Version />,
-        },
-        {
             name: 'gui',
             description: 'Open the website using graphic user interface',
-            component: <p>teste</p>,
+            component: <Gui />,
         },
         {
             name: 'about',
@@ -53,8 +47,13 @@ const returnCommandList = (): IList[] => {
         // {
         //     name: 'theme',
         //     description: 'Change the theme',
-        //     component: () => <Theme />
+        //     component: <Theme />
         // },
+        // {
+        //     name: 'contact',
+        //     description: 'Enter in contact with me by whatsapp (open automatically the whatsapp)',
+        //     component: <Contact />
+        // }
     ];
 };
 

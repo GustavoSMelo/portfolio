@@ -5,7 +5,7 @@ import Website from './views/website';
 const router = createBrowserRouter([
     {
         path: '',
-        element: <Terminal />,
+        element: <Terminal />
     },
     {
         path: '/website',
@@ -14,7 +14,7 @@ const router = createBrowserRouter([
 ]);
 
 const Routes = () => {
-    return <RouterProvider router={router} />;
+    return <RouterProvider router={router}  />;
 };
 
 export default Routes;

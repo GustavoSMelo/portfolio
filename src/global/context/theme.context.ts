@@ -2,7 +2,7 @@ import { createContext } from 'react';
 import { IThemeContext } from '../interface/theme.context.interface';
 
 const ThemeContext = createContext<IThemeContext>({
-    setTheme: () => null,
+    setTheme: (): void => undefined,
     theme: 'dark',
 });
 
