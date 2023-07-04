@@ -1,5 +1,5 @@
 import { IList } from '../../../../types/interface/components/list.interface';
-import { About, Education, Experience, SocialMedia, Help, Personal, Gui } from '../exports';
+import { About, Education, Experience, SocialMedia, Help, Personal, Gui, Theme, Contact } from '../exports';
 
 const returnCommandList = (): IList[] => {
     return [
@@ -44,16 +44,16 @@ const returnCommandList = (): IList[] => {
             description: 'Clear the terminal',
             component: <></>,
         },
-        // {
-        //     name: 'theme',
-        //     description: 'Change the theme',
-        //     component: <Theme />
-        // },
-        // {
-        //     name: 'contact',
-        //     description: 'Enter in contact with me by whatsapp (open automatically the whatsapp)',
-        //     component: <Contact />
-        // }
+        {
+            name: 'theme',
+            description: 'Change the theme',
+            component: <Theme />
+        },
+        {
+            name: 'contact',
+            description: 'Enter in contact with me by whatsapp (open automatically the whatsapp)',
+            component: <Contact />
+        }
     ];
 };
 
