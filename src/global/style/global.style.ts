@@ -6,6 +6,7 @@ const GlobalContainerStyle = createGlobalStyle<IGlobalStyle>`
     * {
         border: 0;
         padding: 0;
+        margin: 0;
         box-sizing: border-box;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;

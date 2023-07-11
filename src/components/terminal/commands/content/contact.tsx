@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 import { styled } from "styled-components";
 import vars from "../../../../global/style/vars.style";
 

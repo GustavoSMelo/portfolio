@@ -1,5 +1,13 @@
+import Navbar from "../../components/website/navbar"
+import { Container } from "./styled";
+
 const Website = () => {
-    return <h1>Website</h1>;
+    return (
+        <Container>
+            <Navbar />
+            <h1>Working</h1>
+        </Container>
+    );
 };
 
 export default Website;

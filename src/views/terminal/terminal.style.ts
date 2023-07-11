@@ -5,12 +5,18 @@ export const Container = styled.main`
     display: flex;
     flex-direction: column;
 
-    margin: 10px;
+    margin: 15px;
     padding: 10px;
+
+    p {
+        margin-top: 10px;
+    }
 
     form,
     form > label {
         display: flex;
+        margin-top: 10px;
+        align-items: center;
     }
 
     form > label {
@@ -27,6 +33,7 @@ export const Container = styled.main`
 
     form > input {
         width: 50%;
+        margin-top: 18px;
     }
 
     form > input:focus {
