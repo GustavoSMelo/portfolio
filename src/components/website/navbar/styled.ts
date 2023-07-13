@@ -6,14 +6,17 @@ const Container = styled.nav`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
-    background-color: ${vars.themes.light.white03};
+    padding: 20px 15%;
+    background-color: ${vars.themes.dark.dark01};
     margin: 0;
+    position: absolute;
+    width: 100%;
 
-    div > p, div > ul > li {
-        background-color: ${vars.themes.light.white03};
-        color: ${vars.themes.dark.dark01};
-        cursor: pointer;
+    div > p, div > ul > span > li, div > ul > span > p {
+        background-color: ${vars.themes.dark.dark01};
+        color: ${vars.themes.light.white01};
+        font-weight: bold;
+        font-size: 16pt;
     }
 
     div > ul {
@@ -21,9 +24,24 @@ const Container = styled.nav`
         list-style-type: none;
     }
 
-    div > ul > li {
+    div > ul > span {
+        display: flex;
+    }
+
+    div > ul > span > p {
+        padding-left: 20px;
+    }
+
+    div > ul > span {
         padding: 10px;
+        transition: 0.5s;
+        text-decoration: none;
+    }
+
+    div > ul > span > li {
+        cursor: pointer;
     }
 `;
+
 
 export {Container};
