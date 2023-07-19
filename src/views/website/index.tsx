@@ -7,7 +7,7 @@ import { useState } from 'react';
 import ChoosedExperience from '../../components/website/choosedExperience';
 
 const Website = () => {
-    const [experienceChoosed, setExperienceChoosed] = useState('ifc');
+    const [experienceChoosed, setExperienceChoosed] = useState('wj');
 
     return (
         <Container>
@@ -34,18 +34,21 @@ const Website = () => {
             <ExperienceSection experienceId={experienceChoosed}>
                 <h1>Experiencias: </h1>
 
-                <ul className='tabControlBtns'>
-                    <li id='ifc' onClick={() => setExperienceChoosed('ifc')}>
-                        <img src={IFCIcon} alt='Infracommerce' />
-                        Infracommerce
-                    </li>
-                    <li id='wj' onClick={() => setExperienceChoosed('wj')}>
-                        <img src={WJIcon} alt='Webjump' />
-                        Webjump
-                    </li>
-                </ul>
+                <span>
+                    <ul className='tabControlBtns'>
+                        <li id='wj' onClick={() => setExperienceChoosed('wj')}>
+                            <img src={WJIcon} alt='Webjump' />
+                        </li>
+                        <hr className="timePipe" />
+                        <li id='ifc' onClick={() => setExperienceChoosed('ifc')}>
+                            <img src={IFCIcon} alt='Infracommerce' />
+                        </li>
+                    </ul>
 
-                <ChoosedExperience experienceId={experienceChoosed} />
+                    <div className='exp-content'>
+                        <ChoosedExperience experienceId={experienceChoosed} />
+                    </div>
+                </span>
             </ExperienceSection>
         </Container>
     );

@@ -62,18 +62,46 @@ const ExperienceSection = styled.section<IChoosedExperience>`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    padding-top: 120px;
+
+    * {
+        background-color: ${vars.themes.dark.dark02};
+    }
+
+    span {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 60%;
+        padding: 20px 0px;
+        border-radius: 30px;
+    }
 
     h1 {
+        background-color: transparent;
         margin-bottom: 30px;
+    }
+
+    .timePipe {
+        position: relative;
+        width: 120%;
+        height: 3px;
+        border-radius: 10px;
+        transform: rotate(90deg);
+        z-index: 0;
+        right: 10px;
+        background-color: ${vars.themes.light.white01};
     }
 
     .tabControlBtns {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         margin-bottom: 30px;
     }
 
     .tabControlBtns > li {
+        z-index: 1;
         margin: 0px 30px;
         cursor: pointer;
         font-size: 16pt;
@@ -81,19 +109,23 @@ const ExperienceSection = styled.section<IChoosedExperience>`
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 20px;
-        border-radius: 30px;
+        padding: 10px;
+        border-radius: 120px;
+        margin-bottom: 60px;
     }
 
     .tabControlBtns > li#${props => props.experienceId} {
-        background-color: ${vars.colors.others.brown};
+        background-color: ${vars.themes.light.white01};
     }
 
     .tabControlBtns > li > img {
         width: 30px;
         height: 30px;
-        margin-right: 10px;
         border-radius: 120px;
+    }
+
+    .exp-content {
+        width: 1024px;
     }
 
 `;

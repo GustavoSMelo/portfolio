@@ -3,6 +3,7 @@ import { Infra } from "./style";
 const Infracommerce = () => {
     return (
         <Infra>
+            <h1>Infracommerce</h1>
             <h1>Desenvolvedor FullStack Typescript Jr.</h1>
             <p>
                 <span>Na infracommerce fui responsavel por implementacao de novas

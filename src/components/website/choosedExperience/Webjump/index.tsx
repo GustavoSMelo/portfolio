@@ -4,6 +4,7 @@ import { Wj } from './style';
 const Webjump = () => {
     return (
         <Wj>
+            <h1>Webjump</h1>
             <h1>Estagiario de Desenvolvimento web <FaArrowRight /> Desenvolvedor Backend PHP Jr. </h1>
 
             <p>
