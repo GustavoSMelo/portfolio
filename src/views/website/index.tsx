@@ -1,10 +1,16 @@
 import Navbar from '../../components/website/navbar';
-import { Container, ExperienceSection, PresentationSection } from './styled';
+import {
+    Container,
+    ExperienceSection,
+    PresentationSection,
+    TecnologiesSection,
+} from './styled';
 import ProfilePixelArt from '../../assets/profilepixelart.png';
 import IFCIcon from '../../assets/ifc.jpeg';
 import WJIcon from '../../assets/wj.jpg';
 import { useState } from 'react';
 import ChoosedExperience from '../../components/website/choosedExperience';
+import { SiNodedotjs, SiNestjs, SiExpress, SiPhp, SiLaravel, SiReact, SiElectron, SiFlutter, SiLinux, SiPostgresql, SiMongodb, SiRender, SiVercel, SiDocker } from 'react-icons/si';
 
 const Website = () => {
     const [experienceChoosed, setExperienceChoosed] = useState('wj');
@@ -39,8 +45,11 @@ const Website = () => {
                         <li id='wj' onClick={() => setExperienceChoosed('wj')}>
                             <img src={WJIcon} alt='Webjump' />
                         </li>
-                        <hr className="timePipe" />
-                        <li id='ifc' onClick={() => setExperienceChoosed('ifc')}>
+                        <hr className='timePipe' />
+                        <li
+                            id='ifc'
+                            onClick={() => setExperienceChoosed('ifc')}
+                        >
                             <img src={IFCIcon} alt='Infracommerce' />
                         </li>
                     </ul>
@@ -50,6 +59,90 @@ const Website = () => {
                     </div>
                 </span>
             </ExperienceSection>
+
+            <TecnologiesSection>
+                <h1>Tecnologies: </h1>
+
+                <div>
+                    <h2>Backend: </h2>
+
+                    <ul>
+                        <li>
+                            <SiNodedotjs className="icon" />
+                            Node.js
+                        </li>
+                        <li>
+                            <SiNestjs className="icon" />
+                            Nest.js
+                        </li>
+                        <li>
+                            <SiExpress className="icon" />
+                            Express.js
+                        </li>
+                        <li>
+                            <SiPhp className="icon" />
+                            PHP
+                        </li>
+                        <li>
+                            <SiLaravel className="icon" />
+                            Laravel
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2>Frontend: </h2>
+
+                    <ul>
+                        <li>
+                            <SiReact className="icon" />
+                            React.js
+                        </li>
+                        <li>
+                            <SiReact className="icon" />
+                            React Native
+                        </li>
+                        <li>
+                            <SiElectron className="icon" />
+                            Electron
+                        </li>
+                        <li>
+                            <SiFlutter className="icon" />
+                            Flutter
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2>Others: </h2>
+                    <ul>
+                        <li>
+                            <SiLinux className="icon" />
+                            Linux
+                        </li>
+                        <li>
+                            <SiPostgresql className="icon" />
+                            SQL
+                        </li>
+                        <li>
+                            <SiMongodb className="icon" />
+                            MongoDB
+                        </li>
+                        <li>
+                            <SiRender className="icon" />
+                            Render
+                        </li>
+                        <li>
+                            <SiVercel className="icon" />
+                            Vercel
+                        </li>
+                        <li>
+                            <SiDocker className="icon" />
+                            Docker
+                        </li>
+                    </ul>
+                </div>
+            </TecnologiesSection>
         </Container>
     );
 };

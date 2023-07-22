@@ -10,16 +10,18 @@ const GlobalContainerStyle = createGlobalStyle<IGlobalStyle>`
         box-sizing: border-box;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        background-color: ${(props) =>
-            props.colorTheme === 'dark'
-                ? vars.themes.dark.dark01
-                : vars.themes.light.white01};
-
         color: ${(props) =>
             props.colorTheme === 'dark'
                 ? vars.themes.light.white01
                 : vars.themes.dark.dark01};
         font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    body, html {
+        background-color: ${(props) =>
+            props.colorTheme === 'dark'
+                ? vars.themes.dark.dark01
+                : vars.themes.light.white01};
     }
 `;
 

@@ -34,6 +34,8 @@ export const Container = styled.main`
     form > input {
         width: 50%;
         margin-top: 18px;
+        background-color: transparent;
+        font-size: 14pt;
     }
 
     form > input:focus {

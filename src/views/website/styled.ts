@@ -130,4 +130,38 @@ const ExperienceSection = styled.section<IChoosedExperience>`
 
 `;
 
-export {Container, PresentationSection, ExperienceSection};
+const TecnologiesSection = styled.section`
+    text-align: center;
+
+    h1 {
+        margin-bottom: 130px;
+    }
+
+    div, ul {
+        display: flex;
+    }
+
+    div {
+        align-items: center;
+    }
+
+    li {
+        list-style-type: none;
+        background-color: ${vars.themes.dark.dark03};
+        margin: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        padding: 30px;
+        flex-direction: column;
+    }
+
+    li > .icon {
+        background-color: transparent;
+        font-size: 16pt;
+        margin: 5px;
+    }
+`;
+
+export {Container, PresentationSection, ExperienceSection, TecnologiesSection};
