@@ -58,12 +58,11 @@ const PresentationSection = styled.section`
 
 const ExperienceSection = styled.section<IChoosedExperience>`
     display: flex;
-    margin: 250px 0px;
+    margin: 150px 0px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding-top: 120px;
 
     * {
         background-color: ${vars.themes.dark.dark02};
@@ -134,7 +133,7 @@ const TecnologiesSection = styled.section`
     text-align: center;
 
     h1 {
-        margin-bottom: 130px;
+        margin-bottom: 30px;
     }
 
     div, ul {
@@ -164,4 +163,44 @@ const TecnologiesSection = styled.section`
     }
 `;
 
-export {Container, PresentationSection, ExperienceSection, TecnologiesSection};
+const ContactSection = styled.section`
+    display: flex;
+    flex-direction: column;
+    margin: 120px 0px;
+    align-items: center;
+    justify-content: center;
+
+    span {
+        display: flex;
+    }
+
+    .link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+        list-style-type: none;
+        margin: 30px;
+        cursor: pointer;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+    .link.Github {
+        background-color: ${vars.colors.others.black};
+    }
+
+    .link.Email {
+        background-color: ${vars.colors.aurora.red};
+    }
+
+    .link.Wpp {
+        background-color: ${vars.colors.others.darkGreen};
+    }
+
+    .link.In {
+        background-color: ${vars.colors.others.blue};
+    }
+`;
+
+export {Container, PresentationSection, ExperienceSection, TecnologiesSection, ContactSection};

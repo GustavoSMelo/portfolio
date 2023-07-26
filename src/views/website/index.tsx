@@ -1,5 +1,6 @@
 import Navbar from '../../components/website/navbar';
 import {
+    ContactSection,
     Container,
     ExperienceSection,
     PresentationSection,
@@ -10,140 +11,195 @@ import IFCIcon from '../../assets/ifc.jpeg';
 import WJIcon from '../../assets/wj.jpg';
 import { useState } from 'react';
 import ChoosedExperience from '../../components/website/choosedExperience';
-import { SiNodedotjs, SiNestjs, SiExpress, SiPhp, SiLaravel, SiReact, SiElectron, SiFlutter, SiLinux, SiPostgresql, SiMongodb, SiRender, SiVercel, SiDocker } from 'react-icons/si';
+import {
+    SiNodedotjs,
+    SiNestjs,
+    SiExpress,
+    SiPhp,
+    SiLaravel,
+    SiReact,
+    SiElectron,
+    SiFlutter,
+    SiLinux,
+    SiPostgresql,
+    SiMongodb,
+    SiRender,
+    SiVercel,
+    SiDocker,
+    SiLinkedin,
+    SiGithub,
+    SiGmail,
+    SiWhatsapp,
+} from 'react-icons/si';
+import Footer from '../../components/website/footer';
+import { Link } from 'react-router-dom';
 
 const Website = () => {
     const [experienceChoosed, setExperienceChoosed] = useState('wj');
 
     return (
-        <Container>
-            <Navbar />
+        <>
+            <Container>
+                <Navbar />
 
-            <PresentationSection>
-                <figure>
-                    <img src={ProfilePixelArt} alt='pixel art' />
-                </figure>
-                <div>
-                    <h2>Desenvolvedor de E-commerce / Software</h2>
-                    <p>
-                        Estou a 2 anos no mercado de tecnologia com foco
-                        principalmente em desenvolvimento de feature e resolucao
-                        de bugs em varejos digitais <br />
-                        Possuindo experiencia tambem em sistemas de pagamento,
-                        desde sistema crediario ate anti-fraude <br />
-                        Porem estou aberto a outras oportunidades que nao
-                        estajam diretamente ligadas a e-commerce.
-                    </p>
-                </div>
-            </PresentationSection>
-
-            <ExperienceSection experienceId={experienceChoosed}>
-                <h1>Experiencias: </h1>
-
-                <span>
-                    <ul className='tabControlBtns'>
-                        <li id='wj' onClick={() => setExperienceChoosed('wj')}>
-                            <img src={WJIcon} alt='Webjump' />
-                        </li>
-                        <hr className='timePipe' />
-                        <li
-                            id='ifc'
-                            onClick={() => setExperienceChoosed('ifc')}
-                        >
-                            <img src={IFCIcon} alt='Infracommerce' />
-                        </li>
-                    </ul>
-
-                    <div className='exp-content'>
-                        <ChoosedExperience experienceId={experienceChoosed} />
+                <PresentationSection>
+                    <figure>
+                        <img src={ProfilePixelArt} alt='pixel art' />
+                    </figure>
+                    <div>
+                        <h2>Desenvolvedor de E-commerce / Software</h2>
+                        <p>
+                            Estou a 2 anos no mercado de tecnologia com foco
+                            principalmente em desenvolvimento de feature e
+                            resolucao de bugs em varejos digitais <br />
+                            Possuindo experiencia tambem em sistemas de
+                            pagamento, desde sistema crediario ate anti-fraude{' '}
+                            <br />
+                            Porem estou aberto a outras oportunidades que nao
+                            estajam diretamente ligadas a e-commerce.
+                        </p>
                     </div>
-                </span>
-            </ExperienceSection>
+                </PresentationSection>
 
-            <TecnologiesSection>
-                <h1>Tecnologies: </h1>
+                <ExperienceSection experienceId={experienceChoosed}>
+                    <h1>Experiencias: </h1>
 
-                <div>
-                    <h2>Backend: </h2>
+                    <span>
+                        <ul className='tabControlBtns'>
+                            <li
+                                id='wj'
+                                onClick={() => setExperienceChoosed('wj')}
+                            >
+                                <img src={WJIcon} alt='Webjump' />
+                            </li>
+                            <hr className='timePipe' />
+                            <li
+                                id='ifc'
+                                onClick={() => setExperienceChoosed('ifc')}
+                            >
+                                <img src={IFCIcon} alt='Infracommerce' />
+                            </li>
+                        </ul>
 
-                    <ul>
-                        <li>
-                            <SiNodedotjs className="icon" />
-                            Node.js
-                        </li>
-                        <li>
-                            <SiNestjs className="icon" />
-                            Nest.js
-                        </li>
-                        <li>
-                            <SiExpress className="icon" />
-                            Express.js
-                        </li>
-                        <li>
-                            <SiPhp className="icon" />
-                            PHP
-                        </li>
-                        <li>
-                            <SiLaravel className="icon" />
-                            Laravel
-                        </li>
-                    </ul>
-                </div>
+                        <div className='exp-content'>
+                            <ChoosedExperience
+                                experienceId={experienceChoosed}
+                            />
+                        </div>
+                    </span>
+                </ExperienceSection>
 
-                <div>
-                    <h2>Frontend: </h2>
+                <TecnologiesSection>
+                    <h1>Tecnologies: </h1>
 
-                    <ul>
-                        <li>
-                            <SiReact className="icon" />
-                            React.js
-                        </li>
-                        <li>
-                            <SiReact className="icon" />
-                            React Native
-                        </li>
-                        <li>
-                            <SiElectron className="icon" />
-                            Electron
-                        </li>
-                        <li>
-                            <SiFlutter className="icon" />
-                            Flutter
-                        </li>
-                    </ul>
-                </div>
+                    <div>
+                        <h2>Backend: </h2>
 
-                <div>
-                    <h2>Others: </h2>
-                    <ul>
-                        <li>
-                            <SiLinux className="icon" />
-                            Linux
-                        </li>
-                        <li>
-                            <SiPostgresql className="icon" />
-                            SQL
-                        </li>
-                        <li>
-                            <SiMongodb className="icon" />
-                            MongoDB
-                        </li>
-                        <li>
-                            <SiRender className="icon" />
-                            Render
-                        </li>
-                        <li>
-                            <SiVercel className="icon" />
-                            Vercel
-                        </li>
-                        <li>
-                            <SiDocker className="icon" />
-                            Docker
-                        </li>
-                    </ul>
-                </div>
-            </TecnologiesSection>
-        </Container>
+                        <ul>
+                            <li>
+                                <SiNodedotjs className='icon' />
+                                Node.js
+                            </li>
+                            <li>
+                                <SiNestjs className='icon' />
+                                Nest.js
+                            </li>
+                            <li>
+                                <SiExpress className='icon' />
+                                Express.js
+                            </li>
+                            <li>
+                                <SiPhp className='icon' />
+                                PHP
+                            </li>
+                            <li>
+                                <SiLaravel className='icon' />
+                                Laravel
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2>Frontend: </h2>
+
+                        <ul>
+                            <li>
+                                <SiReact className='icon' />
+                                React.js
+                            </li>
+                            <li>
+                                <SiReact className='icon' />
+                                React Native
+                            </li>
+                            <li>
+                                <SiElectron className='icon' />
+                                Electron
+                            </li>
+                            <li>
+                                <SiFlutter className='icon' />
+                                Flutter
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2>Others: </h2>
+                        <ul>
+                            <li>
+                                <SiLinux className='icon' />
+                                Linux
+                            </li>
+                            <li>
+                                <SiPostgresql className='icon' />
+                                SQL
+                            </li>
+                            <li>
+                                <SiMongodb className='icon' />
+                                MongoDB
+                            </li>
+                            <li>
+                                <SiRender className='icon' />
+                                Render
+                            </li>
+                            <li>
+                                <SiVercel className='icon' />
+                                Vercel
+                            </li>
+                            <li>
+                                <SiDocker className='icon' />
+                                Docker
+                            </li>
+                        </ul>
+                    </div>
+                </TecnologiesSection>
+
+                <ContactSection>
+                    <h1>
+                        Voce consegue entrar em contato comigo atraves dessas
+                        plataformas:
+                    </h1>
+                    <span>
+                        <Link to={{pathname: 'http://github.com/GustavoSMelo/'}} target='_blank' className='link Github'>
+                            <SiGithub />
+                            Github
+                        </Link>
+                        <Link to={{}} className='link Email'>
+                            <SiGmail />
+                            Email
+                        </Link>
+                        <Link to={{}} className='link Wpp'>
+                            <SiWhatsapp className='iconWpp' />
+                            Whatsapp
+                        </Link>
+                        <Link to={{}} className='link In'>
+                            <SiLinkedin />
+                            Linkedin
+                        </Link>
+                    </span>
+                </ContactSection>
+            </Container>
+            <Footer />
+        </>
     );
 };
 

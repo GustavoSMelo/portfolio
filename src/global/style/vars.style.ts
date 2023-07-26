@@ -32,6 +32,9 @@ const vars = {
         others: {
             gray: '#505050',
             brown: '#8C7749',
+            black: '#101010',
+            darkGreen: '#19DB2E',
+            blue: '#3553DB',
         },
     },
 };
