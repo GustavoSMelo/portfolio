@@ -7,4 +7,16 @@ export const PreArea = styled.pre`
   overflow: auto;
   padding: 1rem;
   white-space: pre;
+
+  @media screen and (max-width: 890px) {
+    font-size: 8pt;
+  }
+
+  @media screen and (max-width: 620px) {
+    font-size: 6pt;
+  }
+
+  @media screen and (max-width: 490px) {
+    font-size: 3pt;
+  }
 `;

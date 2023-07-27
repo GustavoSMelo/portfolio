@@ -54,6 +54,11 @@ const PresentationSection = styled.section`
        line-height: 27px;
        text-align: justify;
     }
+
+    @media screen and (max-width: 1024px) {
+        width: 90%;
+        justify-content: center;
+    }
 `;
 
 const ExperienceSection = styled.section<IChoosedExperience>`

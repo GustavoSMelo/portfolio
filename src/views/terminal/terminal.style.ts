@@ -46,6 +46,17 @@ export const Container = styled.main`
     form > input:focus::placeholder {
         color: transparent;
     }
+
+    @media screen and (max-width: 580px) {
+        form {
+            flex-direction: column;
+            align-items: start;
+        }
+
+        form > input {
+            width: 100%;
+        }
+    }
 `;
 
 export const TerminalAlert = styled.span`
