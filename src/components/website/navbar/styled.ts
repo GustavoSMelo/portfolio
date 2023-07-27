@@ -5,7 +5,7 @@ const Container = styled.nav`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 20px 15%;
     background-color: ${vars.themes.dark.dark01};
     margin: 0;

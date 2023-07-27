@@ -32,10 +32,13 @@ import {
     SiWhatsapp,
 } from 'react-icons/si';
 import Footer from '../../components/website/footer';
-import { Link } from 'react-router-dom';
 
 const Website = () => {
     const [experienceChoosed, setExperienceChoosed] = useState('wj');
+
+    const openExternalLink = (url: string) => {
+        window.open(url, '_blank');
+    };
 
     return (
         <>
@@ -179,22 +182,48 @@ const Website = () => {
                         plataformas:
                     </h1>
                     <span>
-                        <Link to={{pathname: 'http://github.com/GustavoSMelo/'}} target='_blank' className='link Github'>
+                        <div
+                            onClick={() =>
+                                openExternalLink(
+                                    'https://github.com/GustavoSMelo'
+                                )
+                            }
+                            className='link Github'
+                        >
                             <SiGithub />
                             Github
-                        </Link>
-                        <Link to={{}} className='link Email'>
+                        </div>
+                        <div
+                            onClick={() =>
+                                openExternalLink(
+                                    'mailto:gsantos15569@gmail.com'
+                                )
+                            }
+                            className='link Email'
+                        >
                             <SiGmail />
                             Email
-                        </Link>
-                        <Link to={{}} className='link Wpp'>
+                        </div>
+                        <div
+                            onClick={() =>
+                                openExternalLink('https://wa.me/11993791209')
+                            }
+                            className='link Wpp'
+                        >
                             <SiWhatsapp className='iconWpp' />
                             Whatsapp
-                        </Link>
-                        <Link to={{}} className='link In'>
+                        </div>
+                        <div
+                            onClick={() =>
+                                openExternalLink(
+                                    'https://www.linkedin.com/in/gustavo-santos-melo-66092317a/'
+                                )
+                            }
+                            className='link In'
+                        >
                             <SiLinkedin />
                             Linkedin
-                        </Link>
+                        </div>
                     </span>
                 </ContactSection>
             </Container>

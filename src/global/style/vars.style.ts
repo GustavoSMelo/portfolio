@@ -1,4 +1,4 @@
-// This pallet was take from https://www.nordtheme.com/
+// The pallet "themes" was take from https://www.nordtheme.com/
 
 const vars = {
     themes: {

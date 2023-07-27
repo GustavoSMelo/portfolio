@@ -6,31 +6,7 @@ const Navbar = () => {
         <Container>
             <div className='IconContent'>
                 <PiCoffeeBold className='coffee-icon' />
-                <p>Gustavo S Melo</p>
-            </div>
-
-            <div>
-                <ul>
-                    <span>
-                        <p>|</p>
-                    </span>
-                    <span>
-                        <li>About</li>
-                        <p>|</p>
-                    </span>
-                    <span>
-                        <li>Experiences</li>
-                        <p>|</p>
-                    </span>
-                    <span>
-                        <li>Tecnologies</li>
-                        <p>|</p>
-                    </span>
-                    <span>
-                        <li>Contacts</li>
-                        <p>|</p>
-                    </span>
-                </ul>
+                <p>Gustavo S. Melo | Portfolio</p>
             </div>
         </Container>
     )
