@@ -9,4 +9,8 @@ export const Container = styled.table`
     .commandNameTitle {
         color: ${vars.colors.aurora.yellow};
     }
+
+    td {
+        padding: 5px 0px;
+    }
 `;

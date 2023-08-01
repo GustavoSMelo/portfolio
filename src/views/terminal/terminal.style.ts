@@ -47,6 +47,10 @@ export const Container = styled.main`
         color: transparent;
     }
 
+    .mt10 {
+        margin-top: 10px;
+    }
+
     @media screen and (max-width: 580px) {
         form {
             flex-direction: column;

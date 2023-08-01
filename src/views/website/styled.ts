@@ -56,8 +56,37 @@ const PresentationSection = styled.section`
     }
 
     @media screen and (max-width: 1024px) {
-        width: 90%;
         justify-content: center;
+        padding: 20px;
+        flex-direction: column;
+
+        div {
+            width: auto;
+        }
+    }
+
+    @media screen and (max-width: 590px){
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        figure, figure > img {
+            width: 200px;
+        }
+    }
+
+    @media screen and (max-width: 480px){
+        div > h2 {
+            font-size: large;
+        }
+
+        div > p {
+            font-size: medium;
+        }
+
+        figure, figure > img {
+            width: 180px;
+        }
     }
 `;
 
@@ -132,6 +161,31 @@ const ExperienceSection = styled.section<IChoosedExperience>`
         width: 1024px;
     }
 
+    @media screen and (max-width: 1000px) {
+        span {
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 12pt;
+        }
+
+        .timePipe {
+            top: 30px;
+            transform: rotate(0deg);
+        }
+
+        .tabControlBtns {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .exp-content {
+            padding: 30px;
+            width: auto;
+        }
+    }
+
 `;
 
 const TecnologiesSection = styled.section`
@@ -165,6 +219,12 @@ const TecnologiesSection = styled.section`
         background-color: transparent;
         font-size: 16pt;
         margin: 5px;
+    }
+
+    @media screen and (max-width: 1440px) {
+        div, ul {
+            flex-direction: column;
+        }
     }
 `;
 
@@ -205,6 +265,19 @@ const ContactSection = styled.section`
 
     .link.In {
         background-color: ${vars.colors.others.blue};
+    }
+
+    @media screen and (max-width: 1000px) {
+        h1 {
+            font-size: 12pt;
+            text-align: center;
+        }
+    }
+
+    @media screen and (max-width: 705px) {
+        span {
+            flex-direction: column;
+        }
     }
 `;
 

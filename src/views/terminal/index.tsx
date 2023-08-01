@@ -58,7 +58,7 @@ const Terminal = () => {
                         placeholder='Click here to type a command...'
                         autoFocus
                         onKeyDown={(event) => execCommand(event)}
-                        onChange={(e) => setBin(e.target.value)}
+                        onChange={(e) => setBin(e.target.value.toLowerCase())}
                     />
                 </form>
             </>
@@ -78,7 +78,9 @@ const Terminal = () => {
                 But if you want to see a GUI portfolio version you can click
                 here
             </p>
-            {renderLine()}
+            <span className='mt10'>
+                {renderLine()}
+            </span>
         </Container>
     );
 };
