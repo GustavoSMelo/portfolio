@@ -4,10 +4,12 @@ import { Container, TerminalAlert } from './terminal.style';
 import Commands from '../../components/terminal/commands';
 import convertStringToCommandBin from '../../helper/convertStringToCommandBin';
 import Error from '../../components/terminal/commands/content/errors';
+import { useNavigate } from 'react-router-dom';
 
 const Terminal = () => {
     const [commandResult, setCommandResult] = useState(<></>);
     const [bin, setBin] = useState('');
+    const navigate = useNavigate();
 
     const execCommand = (
         event: React.KeyboardEvent<HTMLInputElement>
@@ -72,11 +74,11 @@ const Terminal = () => {
                 Welcome to my portfolio :D <br />
                 ------- <br />
                 To use, please use the command:{' '}
-                <TerminalAlert>help</TerminalAlert> to see the command list{' '}
+                <TerminalAlert onClick={() => setBin('help')}>help</TerminalAlert> to see the command list
                 <br />
                 ------- <br />
-                But if you want to see a GUI portfolio version you can click
-                here
+                But if you want to see a GUI portfolio version you can <TerminalAlert onClick={() => navigate('/website')}>click
+                here</TerminalAlert>
             </p>
             <span className='mt10'>
                 {renderLine()}

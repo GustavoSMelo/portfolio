@@ -64,5 +64,6 @@ export const Container = styled.main`
 `;
 
 export const TerminalAlert = styled.span`
+    cursor: pointer;
     color: ${vars.colors.aurora.yellow};
 `
