@@ -1,0 +1,39 @@
+:root {
+    --bg: #f3e8df;
+    --bg-aux: #e8d1c5;
+    --shadow: #57595b;
+    --accent: #452829;
+    --accent-2: #dd9e59;
+    --spacing-sm: 20px;
+    --width-container: 80%;
+    --font-rubik: 'Rubik', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-rubik);
+    background-color: var(--bg);
+    color: var(--accent);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --width-container: 90%;
+    }
+}

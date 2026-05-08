@@ -1,0 +1,1441 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Guty.dev - Fullstack Engineer</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap"
+            rel="stylesheet"
+        />
+        <script
+            src="https://unpkg.com/react@18.3.1/umd/react.development.js"
+            integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"
+            integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"
+            integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y"
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+        <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            :root {
+                --bg: #f3e8df;
+                --bg-aux: #e8d1c5;
+                --shadow: #57595b;
+                --accent: #452829;
+                --accent-2: #dd9e59;
+                --spacing-sm: 20px;
+                --width-container: 80%;
+                --font-rubik: 'Rubik', sans-serif;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: var(--font-rubik);
+                background-color: var(--bg);
+                color: var(--accent);
+                line-height: 1.6;
+                overflow-x: hidden;
+            }
+
+            .container {
+                width: var(--width-container);
+                margin: 0 auto;
+            }
+
+            .indexTop {
+                position: relative;
+                z-index: 10;
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    width: 90%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <style>
+            @media (max-width: 780px) {
+                .nav-desktop {
+                    display: none !important;
+                }
+                .nav-hamburger {
+                    display: flex !important;
+                }
+                .hero-container {
+                    grid-template-columns: 1fr !important;
+                    width: 90% !important;
+                }
+                .hero-image {
+                    order: -1 !important;
+                    height: 280px !important;
+                }
+                .hero-content {
+                    text-align: center;
+                    align-items: center;
+                }
+                .hero-content .hero-desc {
+                    max-width: 100% !important;
+                }
+                .hero-content .hero-cta {
+                    width: 100%;
+                    text-align: center;
+                }
+                .projects-grid {
+                    display: flex !important;
+                    overflow-x: auto !important;
+                    scroll-snap-type: x mandatory !important;
+                    gap: 20px !important;
+                    padding-bottom: 20px !important;
+                    -webkit-overflow-scrolling: touch;
+                }
+                .projects-grid::-webkit-scrollbar {
+                    height: 6px;
+                }
+                .projects-grid::-webkit-scrollbar-track {
+                    background: rgba(243, 232, 223, 0.2);
+                    border-radius: 3px;
+                }
+                .projects-grid::-webkit-scrollbar-thumb {
+                    background: #dd9e59;
+                    border-radius: 3px;
+                }
+                .project-card {
+                    min-width: 300px !important;
+                    max-width: 85vw !important;
+                    scroll-snap-align: start !important;
+                    flex-shrink: 0 !important;
+                }
+
+                .project {
+                    position: relative;
+                    z-index: 10;
+                }
+
+                .exp-section {
+                    padding: 60px 0 !important;
+                }
+                .exp-container {
+                    width: 90% !important;
+                }
+                .exp-title {
+                    font-size: 32px !important;
+                }
+                .exp-item {
+                    flex-direction: column;
+                    gap: 15px !important;
+                }
+                .exp-dot-wrapper {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                }
+                .exp-date-inline {
+                    display: none;
+                }
+                .exp-date-mobile {
+                    display: block !important;
+                }
+                .exp-content {
+                    padding: 20px !important;
+                }
+                .exp-header {
+                    flex-direction: column;
+                }
+                .footer-container {
+                    width: 90% !important;
+                }
+                .footer-contacts {
+                    flex-direction: column;
+                    gap: 15px !important;
+                }
+            }
+        </style>
+        <script type="text/babel">
+            const { useState, useEffect, useRef } = React;
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            const ContactModal = ({ isOpen, onClose }) => {
+                if (!isOpen) return null;
+
+                const contacts = [
+                    {
+                        name: 'WhatsApp',
+                        icon: '📱',
+                        value: '+55 11 99999-9999',
+                        link: 'https://wa.me/5511999999999',
+                    },
+                    {
+                        name: 'Gmail',
+                        icon: '✉️',
+                        value: 'guty.dev@gmail.com',
+                        link: 'mailto:guty.dev@gmail.com',
+                    },
+                    {
+                        name: 'GitHub',
+                        icon: '💻',
+                        value: '@gutydev',
+                        link: 'https://github.com/gutydev',
+                    },
+                    {
+                        name: 'LinkedIn',
+                        icon: '💼',
+                        value: '/in/gutydev',
+                        link: 'https://linkedin.com/in/gutydev',
+                    },
+                ];
+
+                return (
+                    <div style={modalStyles.overlay} onClick={onClose}>
+                        <div
+                            style={modalStyles.modal}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <button
+                                style={modalStyles.closeBtn}
+                                onClick={onClose}
+                            >
+                                ×
+                            </button>
+                            <h2 style={modalStyles.title}>Contato</h2>
+                            <div style={modalStyles.grid}>
+                                {contacts.map((contact, i) => (
+                                    <a
+                                        key={i}
+                                        href={contact.link}
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        style={modalStyles.card}
+                                    >
+                                        <span style={modalStyles.icon}>
+                                            {contact.icon}
+                                        </span>
+                                        <span style={modalStyles.name}>
+                                            {contact.name}
+                                        </span>
+                                        <span style={modalStyles.value}>
+                                            {contact.value}
+                                        </span>
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                );
+            };
+
+            const modalStyles = {
+                overlay: {
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    backgroundColor: 'rgba(69, 40, 41, 0.9)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    zIndex: 2000,
+                    padding: '20px',
+                },
+                modal: {
+                    backgroundColor: '#F3E8DF',
+                    borderRadius: '16px',
+                    padding: '40px',
+                    maxWidth: '600px',
+                    width: '100%',
+                    position: 'relative',
+                    boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
+                },
+                closeBtn: {
+                    position: 'absolute',
+                    top: '15px',
+                    right: '20px',
+                    background: 'none',
+                    border: 'none',
+                    fontSize: '32px',
+                    cursor: 'pointer',
+                    color: '#452829',
+                    lineHeight: 1,
+                },
+                title: {
+                    fontSize: '32px',
+                    fontWeight: '900',
+                    marginBottom: '30px',
+                    textAlign: 'center',
+                    color: '#452829',
+                },
+                grid: {
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                    gap: '20px',
+                },
+                card: {
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    padding: '25px 20px',
+                    backgroundColor: '#E8D1C5',
+                    borderRadius: '12px',
+                    textDecoration: 'none',
+                    color: '#452829',
+                    transition: 'transform 0.3s, box-shadow 0.3s',
+                },
+                icon: {
+                    fontSize: '40px',
+                    marginBottom: '10px',
+                },
+                name: {
+                    fontWeight: '700',
+                    fontSize: '16px',
+                    marginBottom: '5px',
+                },
+                value: {
+                    fontSize: '14px',
+                    opacity: 0.8,
+                },
+            };
+
+            const Navbar = ({ onContactClick }) => {
+                const [scrolled, setScrolled] = useState(false);
+
+                useEffect(() => {
+                    const handleScroll = () => setScrolled(window.scrollY > 50);
+                    window.addEventListener('scroll', handleScroll);
+                    return () =>
+                        window.removeEventListener('scroll', handleScroll);
+                }, []);
+
+                const navLinks = [
+                    { label: 'Hero', href: '#hero' },
+                    { label: 'Tecnologias', href: '#technologies' },
+                    { label: 'Projetos', href: '#projects' },
+                    { label: 'Experiência', href: '#experience' },
+                ];
+
+                return (
+                    <nav
+                        style={{
+                            ...navStyles.nav,
+                            backgroundColor: scrolled
+                                ? 'rgba(243, 232, 223, 0.95)'
+                                : 'transparent',
+                            backdropFilter: scrolled ? 'blur(10px)' : 'none',
+                            boxShadow: scrolled
+                                ? '0 2px 20px rgba(87, 89, 91, 0.1)'
+                                : 'none',
+                        }}
+                    >
+                        <div style={navStyles.container}>
+                            <a href='#hero' style={navStyles.logo}>
+                                <span style={navStyles.logoCoffee}>☕</span>
+                                <span style={navStyles.logoText}>
+                                    Guty
+                                    <span style={navStyles.logoDev}>.dev</span>
+                                </span>
+                                <span style={navStyles.logoBracket}>/&gt;</span>
+                            </a>
+                            <div style={navStyles.links}>
+                                {navLinks.map((link, i) => (
+                                    <a
+                                        key={i}
+                                        href={link.href}
+                                        style={navStyles.link}
+                                    >
+                                        {link.label}
+                                    </a>
+                                ))}
+                                <button
+                                    onClick={onContactClick}
+                                    style={navStyles.cta}
+                                >
+                                    Contato
+                                </button>
+                            </div>
+                        </div>
+                    </nav>
+                );
+            };
+
+            const navStyles = {
+                nav: {
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    zIndex: 1000,
+                    transition: 'all 0.3s ease',
+                    padding: '15px 0',
+                },
+                container: {
+                    width: '80%',
+                    margin: '0 auto',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                },
+                logo: {
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    textDecoration: 'none',
+                    color: '#452829',
+                    fontWeight: '900',
+                    fontSize: '24px',
+                },
+                logoCoffee: {
+                    fontSize: '28px',
+                },
+                logoText: {
+                    display: 'flex',
+                    flexDirection: 'column',
+                    lineHeight: 1,
+                },
+                logoDev: {
+                    fontSize: '14px',
+                    color: '#DD9E59',
+                },
+                logoBracket: {
+                    fontSize: '20px',
+                    color: '#57595B',
+                },
+                links: {
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '30px',
+                },
+                link: {
+                    textDecoration: 'none',
+                    color: '#452829',
+                    fontWeight: '500',
+                    fontSize: '16px',
+                    transition: 'color 0.3s',
+                },
+                cta: {
+                    backgroundColor: '#452829',
+                    color: '#F3E8DF',
+                    border: 'none',
+                    padding: '12px 28px',
+                    borderRadius: '8px',
+                    fontSize: '16px',
+                    fontWeight: '700',
+                    cursor: 'pointer',
+                    transition: 'transform 0.3s, box-shadow 0.3s',
+                },
+            };
+
+            const Hero = ({ onContactClick }) => {
+                const heroRef = useRef(null);
+                const titleRef = useRef(null);
+                const subtitleRef = useRef(null);
+                const descRef = useRef(null);
+                const btnRef = useRef(null);
+                const imageRef = useRef(null);
+
+                const roles = [
+                    'Fullstack Engineer',
+                    'Web Developer',
+                    'Prompt Engineer',
+                    'Christian',
+                    'Cosplay/Cosmaker',
+                    'Coffee Lover',
+                    'Son of God',
+                ];
+
+                const [currentRole, setCurrentRole] = useState(0);
+                const [displayedText, setDisplayedText] = useState('');
+                const [isDeleting, setIsDeleting] = useState(false);
+
+                useEffect(() => {
+                    const role = roles[currentRole];
+                    const timeout = setTimeout(
+                        () => {
+                            if (!isDeleting) {
+                                if (displayedText.length < role.length) {
+                                    setDisplayedText(
+                                        role.slice(0, displayedText.length + 1),
+                                    );
+                                } else {
+                                    setTimeout(() => setIsDeleting(true), 2000);
+                                }
+                            } else {
+                                if (displayedText.length > 0) {
+                                    setDisplayedText(
+                                        displayedText.slice(0, -1),
+                                    );
+                                } else {
+                                    setIsDeleting(false);
+                                    setCurrentRole(
+                                        (prev) => (prev + 1) % roles.length,
+                                    );
+                                }
+                            }
+                        },
+                        isDeleting ? 50 : 100,
+                    );
+
+                    return () => clearTimeout(timeout);
+                }, [displayedText, isDeleting, currentRole]);
+
+                useEffect(() => {
+                    gsap.fromTo(
+                        [
+                            titleRef.current,
+                            subtitleRef.current,
+                            descRef.current,
+                            btnRef.current,
+                        ],
+                        { opacity: 0, y: 30 },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            duration: 0.8,
+                            stagger: 0.15,
+                            ease: 'power3.out',
+                        },
+                    );
+
+                    gsap.fromTo(
+                        imageRef.current,
+                        { opacity: 0, scale: 0.9 },
+                        {
+                            opacity: 1,
+                            scale: 1,
+                            duration: 1,
+                            delay: 0.3,
+                            ease: 'power3.out',
+                        },
+                    );
+
+                    gsap.to(
+                        [
+                            titleRef.current,
+                            subtitleRef.current,
+                            descRef.current,
+                            btnRef.current,
+                            imageRef.current,
+                        ],
+                        {
+                            y: -10,
+                            duration: 2,
+                            repeat: -1,
+                            yoyo: true,
+                            ease: 'sine.inOut',
+                            stagger: 0.2,
+                        },
+                    );
+                }, []);
+
+                return (
+                    <section id='hero' style={heroStyles.section} ref={heroRef}>
+                        <div style={heroStyles.container}>
+                            <div style={heroStyles.content}>
+                                <h1 ref={titleRef} style={heroStyles.title}>
+                                    Guty.dev
+                                </h1>
+                                <div
+                                    ref={subtitleRef}
+                                    style={heroStyles.subtitleContainer}
+                                >
+                                    <span style={heroStyles.subtitle}>
+                                        {displayedText}
+                                        <span style={heroStyles.cursor}>|</span>
+                                    </span>
+                                </div>
+                                <p ref={descRef} style={heroStyles.description}>
+                                    Desenvolvedor apaixonado por criar
+                                    experiências digitais incríveis. Com sólida
+                                    experiência em desenvolvimento web
+                                    fullstack, combino código limpo com design
+                                    intuitivo. Amante de café, cosplay e
+                                    tecnologia, sempre buscando novos desafios
+                                    para transformar ideias em realidade
+                                    digital.
+                                </p>
+                                <button
+                                    ref={btnRef}
+                                    onClick={onContactClick}
+                                    style={heroStyles.cta}
+                                >
+                                    Contact Me
+                                </button>
+                            </div>
+                            <div
+                                ref={imageRef}
+                                style={heroStyles.imageContainer}
+                            ></div>
+                        </div>
+                    </section>
+                );
+            };
+
+            const heroStyles = {
+                section: {
+                    minHeight: '100vh',
+                    display: 'flex',
+                    alignItems: 'center',
+                    paddingTop: '100px',
+                },
+                container: {
+                    width: '80%',
+                    margin: '0 auto',
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1fr',
+                    gap: '60px',
+                    alignItems: 'center',
+                },
+                content: {
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '20px',
+                },
+                title: {
+                    fontSize: 'clamp(48px, 6vw, 72px)',
+                    fontWeight: '900',
+                    color: '#452829',
+                    lineHeight: 1.1,
+                },
+                subtitleContainer: {
+                    height: '40px',
+                    overflow: 'hidden',
+                },
+                subtitle: {
+                    fontSize: 'clamp(20px, 3vw, 28px)',
+                    fontWeight: '700',
+                    color: '#DD9E59',
+                    display: 'inline-block',
+                },
+                cursor: {
+                    animation: 'blink 1s infinite',
+                    marginLeft: '2px',
+                },
+                description: {
+                    fontSize: '18px',
+                    lineHeight: 1.8,
+                    color: '#57595B',
+                    maxWidth: '500px',
+                },
+                cta: {
+                    backgroundColor: '#452829',
+                    color: '#F3E8DF',
+                    border: 'none',
+                    padding: '16px 40px',
+                    borderRadius: '8px',
+                    fontSize: '18px',
+                    fontWeight: '700',
+                    cursor: 'pointer',
+                    width: 'fit-content',
+                    transition: 'transform 0.3s, box-shadow 0.3s',
+                },
+                imageContainer: {
+                    width: '100%',
+                    height: '500px',
+                    borderRadius: '20px',
+                    overflow: 'hidden',
+                    backgroundImage: 'url(mow5amq1-hero.png)',
+                    backgroundSize: 'contain',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                },
+            };
+
+            const Technologies = () => {
+                const sliderRef = useRef(null);
+
+                const technologies = [
+                    'Laravel',
+                    'React',
+                    'Next.js',
+                    'NestJS',
+                    'Vue.js',
+                    'Git',
+                    'Docker',
+                    'Nginx',
+                    'MariaDB',
+                    'PostgreSQL',
+                    'MySQL',
+                    'Linux',
+                    'PHP',
+                ];
+
+                useEffect(() => {
+                    if (sliderRef.current) {
+                        const width = sliderRef.current.scrollWidth / 2;
+                        gsap.to(sliderRef.current, {
+                            x: -width,
+                            duration: 25,
+                            ease: 'none',
+                            repeat: -1,
+                            modifiers: {
+                                x: gsap.utils.unitize(
+                                    (x) => parseFloat(x) % width,
+                                ),
+                            },
+                        });
+                    }
+                }, []);
+
+                return (
+                    <section id='technologies' style={techStyles.section}>
+                        <div style={techStyles.container}>
+                            <h2 style={techStyles.title}>Technologies</h2>
+                            <p style={techStyles.description}>
+                                Tecnologias que eu uso para fazer meus projetos
+                            </p>
+                        </div>
+                        <div style={techStyles.sliderWrapper}>
+                            <div ref={sliderRef} style={techStyles.slider}>
+                                {[...technologies, ...technologies].map(
+                                    (tech, i) => (
+                                        <div key={i} style={techStyles.tech}>
+                                            <span style={techStyles.techIcon}>
+                                                ☕
+                                            </span>
+                                            <span style={techStyles.techName}>
+                                                {tech}
+                                            </span>
+                                        </div>
+                                    ),
+                                )}
+                            </div>
+                        </div>
+                    </section>
+                );
+            };
+
+            const techStyles = {
+                section: {
+                    padding: '100px 0',
+                    overflow: 'hidden',
+                },
+                container: {
+                    width: '80%',
+                    margin: '0 auto 60px',
+                    textAlign: 'center',
+                },
+                title: {
+                    fontSize: '48px',
+                    fontWeight: '900',
+                    color: '#452829',
+                    marginBottom: '15px',
+                },
+                description: {
+                    fontSize: '20px',
+                    color: '#57595B',
+                },
+                sliderWrapper: {
+                    overflow: 'hidden',
+                    padding: '40px 0',
+                },
+                slider: {
+                    display: 'flex',
+                    gap: '30px',
+                    width: 'fit-content',
+                },
+                tech: {
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '15px',
+                    backgroundColor: '#E8D1C5',
+                    padding: '20px 40px',
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 20px rgba(87, 89, 91, 0.1)',
+                    whiteSpace: 'nowrap',
+                },
+                techIcon: {
+                    fontSize: '28px',
+                },
+                techName: {
+                    fontSize: '20px',
+                    fontWeight: '700',
+                    color: '#452829',
+                },
+            };
+
+            const CoffeeSpill = () => {
+                const cupRef = useRef(null);
+                const spillRef = useRef(null);
+
+                useEffect(() => {
+                    gsap.fromTo(
+                        cupRef.current,
+                        { y: -50 },
+                        {
+                            y: 200,
+                            scrollTrigger: {
+                                trigger: cupRef.current,
+                                start: 'top center',
+                                end: 'bottom center',
+                                scrub: 1,
+                            },
+                        },
+                    );
+
+                    gsap.fromTo(
+                        spillRef.current,
+                        { scaleY: 0, transformOrigin: 'top center' },
+                        {
+                            scaleY: 1,
+                            scrollTrigger: {
+                                trigger: cupRef.current,
+                                start: 'top center',
+                                end: 'bottom center',
+                                scrub: 1,
+                            },
+                        },
+                    );
+                }, []);
+
+                return (
+                    <section style={coffeeStyles.section}>
+                        <div ref={cupRef} style={coffeeStyles.cup}>
+                            <div style={coffeeStyles.cupInner}>
+                                <div style={coffeeStyles.coffee}></div>
+                            </div>
+                            <div style={coffeeStyles.handle}></div>
+                        </div>
+                        <div ref={spillRef} style={coffeeStyles.spill}></div>
+                    </section>
+                );
+            };
+
+            const coffeeStyles = {
+                section: {
+                    minHeight: '100vh',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    position: 'relative',
+                    zIndex: 10,
+                },
+                cup: {
+                    width: '120px',
+                    height: '140px',
+                    backgroundColor: '#F3E8DF',
+                    borderRadius: '10px 10px 40px 40px',
+                    position: 'relative',
+                    boxShadow: '0 10px 30px rgba(87, 89, 91, 0.2)',
+                },
+                cupInner: {
+                    position: 'absolute',
+                    top: '15px',
+                    left: '15px',
+                    right: '15px',
+                    bottom: '25px',
+                    backgroundColor: '#452829',
+                    borderRadius: '5px 5px 30px 30px',
+                    overflow: 'hidden',
+                },
+                coffee: {
+                    position: 'absolute',
+                    top: '0',
+                    left: '0',
+                    right: '0',
+                    bottom: '0',
+                    backgroundColor: '#2a1718',
+                    borderRadius: '5px 5px 30px 30px',
+                },
+                handle: {
+                    position: 'absolute',
+                    right: '-25px',
+                    top: '25px',
+                    width: '30px',
+                    height: '60px',
+                    border: '10px solid #F3E8DF',
+                    borderLeft: 'none',
+                    borderRadius: '0 30px 30px 0',
+                },
+                spill: {
+                    position: 'absolute',
+                    top: '100%',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    width: '200vw',
+                    height: '100vh',
+                    backgroundColor: '#452829',
+                    transformOrigin: 'top center',
+                },
+            };
+
+            const Projects = () => {
+                const [activeTab, setActiveTab] = useState('company');
+
+                const projects = {
+                    company: [
+                        {
+                            title: 'E-commerce Platform',
+                            description:
+                                'Plataforma completa de e-commerce com painel admin, carrinho, pagamentos e gestão de estoque.',
+                            techs: ['Laravel', 'React', 'PostgreSQL', 'Docker'],
+                            bgColor: '#57595B',
+                            label: 'E-commerce',
+                        },
+                        {
+                            title: 'CRM System',
+                            description:
+                                'Sistema de gestão de relacionamento com clientes com dashboard analítico e automações.',
+                            techs: ['Vue.js', 'Node.js', 'MySQL', 'Nginx'],
+                            bgColor: '#57595B',
+                            label: 'CRM',
+                        },
+                        {
+                            title: 'API Gateway',
+                            description:
+                                'Gateway de APIs com autenticação, rate limiting e documentação automática.',
+                            techs: ['NestJS', 'Docker', 'Redis', 'Linux'],
+                            bgColor: '#57595B',
+                            label: 'API Gateway',
+                        },
+                    ],
+                    personal: [
+                        {
+                            title: 'Portfolio Guty.dev',
+                            description:
+                                'Meu portfolio pessoal com animações, design único e tema de café.',
+                            techs: ['React', 'GSAP', 'Next.js'],
+                            bgColor: '#57595B',
+                            label: 'Portfolio',
+                        },
+                        {
+                            title: 'Coffee Finder App',
+                            description:
+                                'Aplicativo para encontrar as melhores cafeterias da região com avaliações.',
+                            techs: ['React', 'MariaDB', 'PHP'],
+                            bgColor: '#57595B',
+                            label: 'Coffee Finder',
+                        },
+                    ],
+                };
+
+                return (
+                    <section id='projects' style={projectsStyles.section}>
+                        <div style={projectsStyles.container}>
+                            <h2
+                                className='indexTop'
+                                style={projectsStyles.title}
+                            >
+                                Projetos
+                            </h2>
+                            <div
+                                className='indexTop'
+                                style={projectsStyles.tabs}
+                            >
+                                <button
+                                    onClick={() => setActiveTab('company')}
+                                    style={{
+                                        ...projectsStyles.tab,
+                                        ...(activeTab === 'company'
+                                            ? projectsStyles.tabActive
+                                            : {}),
+                                    }}
+                                >
+                                    Company Projects
+                                </button>
+                                <button
+                                    onClick={() => setActiveTab('personal')}
+                                    style={{
+                                        ...projectsStyles.tab,
+                                        ...(activeTab === 'personal'
+                                            ? projectsStyles.tabActive
+                                            : {}),
+                                    }}
+                                >
+                                    Personal Projects
+                                </button>
+                            </div>
+                            <div style={projectsStyles.grid}>
+                                {projects[activeTab].map((project, i) => (
+                                    <div
+                                        className='indexTop'
+                                        key={i}
+                                        style={projectsStyles.card}
+                                    >
+                                        <h3 style={projectsStyles.cardTitle}>
+                                            {project.title}
+                                        </h3>
+                                        <div
+                                            style={{
+                                                ...projectsStyles.cardImage,
+                                                backgroundColor:
+                                                    project.bgColor,
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                color: '#F3E8DF',
+                                                fontWeight: '900',
+                                                fontSize: '22px',
+                                            }}
+                                        >
+                                            {project.label}
+                                        </div>
+                                        <p
+                                            style={
+                                                projectsStyles.cardDescription
+                                            }
+                                        >
+                                            {project.description}
+                                        </p>
+                                        <div style={projectsStyles.techList}>
+                                            {project.techs.map((tech, j) => (
+                                                <span
+                                                    key={j}
+                                                    style={
+                                                        projectsStyles.techTag
+                                                    }
+                                                >
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                        </div>
+                                        <div style={projectsStyles.cardButtons}>
+                                            <button
+                                                style={projectsStyles.cardBtn}
+                                            >
+                                                View Project
+                                            </button>
+                                            <button
+                                                style={
+                                                    projectsStyles.cardBtnAlt
+                                                }
+                                            >
+                                                View Code
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                );
+            };
+
+            const projectsStyles = {
+                section: {
+                    backgroundColor: '#452829',
+                    padding: '100px 0',
+                },
+                container: {
+                    width: '80%',
+                    margin: '0 auto',
+                },
+                title: {
+                    fontSize: '48px',
+                    fontWeight: '900',
+                    color: '#F3E8DF',
+                    textAlign: 'center',
+                    marginBottom: '40px',
+                },
+                tabs: {
+                    display: 'flex',
+                    justifyContent: 'center',
+                    gap: '20px',
+                    marginBottom: '50px',
+                },
+                tab: {
+                    backgroundColor: 'transparent',
+                    border: '2px solid #F3E8DF',
+                    color: '#F3E8DF',
+                    padding: '14px 32px',
+                    borderRadius: '8px',
+                    fontSize: '16px',
+                    fontWeight: '700',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s',
+                },
+                tabActive: {
+                    backgroundColor: '#DD9E59',
+                    borderColor: '#DD9E59',
+                    color: '#452829',
+                },
+                grid: {
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+                    gap: '30px',
+                },
+                card: {
+                    backgroundColor: '#F3E8DF',
+                    borderRadius: '16px',
+                    overflow: 'hidden',
+                    boxShadow: '0 10px 40px rgba(0,0,0,0.2)',
+                },
+                cardTitle: {
+                    padding: '25px 25px 15px',
+                    fontSize: '24px',
+                    fontWeight: '900',
+                    color: '#452829',
+                },
+                cardImage: {
+                    width: '100%',
+                    height: '200px',
+                    objectFit: 'cover',
+                },
+                cardDescription: {
+                    padding: '15px 25px',
+                    fontSize: '16px',
+                    color: '#57595B',
+                    lineHeight: 1.6,
+                },
+                techList: {
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: '10px',
+                    padding: '0 25px 20px',
+                },
+                techTag: {
+                    backgroundColor: '#E8D1C5',
+                    color: '#452829',
+                    padding: '6px 14px',
+                    borderRadius: '20px',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                },
+                cardButtons: {
+                    display: 'flex',
+                    gap: '15px',
+                    padding: '0 25px 25px',
+                },
+                cardBtn: {
+                    flex: 1,
+                    backgroundColor: '#452829',
+                    color: '#F3E8DF',
+                    border: 'none',
+                    padding: '12px',
+                    borderRadius: '8px',
+                    fontSize: '15px',
+                    fontWeight: '700',
+                    cursor: 'pointer',
+                },
+                cardBtnAlt: {
+                    flex: 1,
+                    backgroundColor: 'transparent',
+                    border: '2px solid #452829',
+                    color: '#452829',
+                    padding: '10px',
+                    borderRadius: '8px',
+                    fontSize: '15px',
+                    fontWeight: '700',
+                    cursor: 'pointer',
+                },
+            };
+
+            const Experience = () => {
+                const experiences = [
+                    {
+                        title: 'Senior Fullstack Developer',
+                        company: 'TechCorp Solutions',
+                        description:
+                            'Liderança técnica de equipe, arquitetura de sistemas escaláveis, mentoria de desenvolvedores júnior.',
+                        techs: ['React', 'Laravel', 'Docker', 'PostgreSQL'],
+                        start: 'Jan 2023',
+                        end: 'Present',
+                    },
+                    {
+                        title: 'Fullstack Developer',
+                        company: 'Digital Innovations',
+                        description:
+                            'Desenvolvimento de aplicações web, APIs RESTful, integração com sistemas de pagamento.',
+                        techs: ['Vue.js', 'Node.js', 'MySQL', 'AWS'],
+                        start: 'Mar 2021',
+                        end: 'Dez 2022',
+                    },
+                    {
+                        title: 'Junior Web Developer',
+                        company: 'StartUp Labs',
+                        description:
+                            'Desenvolvimento frontend, criação de interfaces responsivas, aprendizado ágil.',
+                        techs: ['React', 'PHP', 'MariaDB', 'Git'],
+                        start: 'Jun 2019',
+                        end: 'Fev 2021',
+                    },
+                ];
+
+                return (
+                    <section id='experience' style={expStyles.section}>
+                        <div style={expStyles.container}>
+                            <h2 style={expStyles.title}>Experience</h2>
+                            <div style={expStyles.timeline}>
+                                {experiences.map((exp, i) => (
+                                    <div key={i} style={expStyles.item}>
+                                        <div style={expStyles.dot}></div>
+                                        <div style={expStyles.content}>
+                                            <div style={expStyles.header}>
+                                                <div>
+                                                    <h3
+                                                        style={
+                                                            expStyles.expTitle
+                                                        }
+                                                    >
+                                                        {exp.title}
+                                                    </h3>
+                                                    <p
+                                                        style={
+                                                            expStyles.company
+                                                        }
+                                                    >
+                                                        {exp.company}
+                                                    </p>
+                                                </div>
+                                                <span style={expStyles.date}>
+                                                    {exp.start} - {exp.end}
+                                                </span>
+                                            </div>
+                                            <p style={expStyles.description}>
+                                                {exp.description}
+                                            </p>
+                                            <div style={expStyles.techs}>
+                                                {exp.techs.map((tech, j) => (
+                                                    <span
+                                                        key={j}
+                                                        style={
+                                                            expStyles.techTag
+                                                        }
+                                                    >
+                                                        {tech}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                );
+            };
+
+            const expStyles = {
+                section: {
+                    backgroundColor: '#F3E8DF',
+                    padding: '100px 0',
+                    position: 'relative',
+                },
+                container: {
+                    width: '80%',
+                    margin: '0 auto',
+                },
+                title: {
+                    fontSize: '48px',
+                    fontWeight: '900',
+                    color: '#452829',
+                    textAlign: 'center',
+                    marginBottom: '60px',
+                },
+                timeline: {
+                    position: 'relative',
+                    maxWidth: '900px',
+                    margin: '0 auto',
+                },
+                item: {
+                    display: 'flex',
+                    gap: '30px',
+                    marginBottom: '50px',
+                    position: 'relative',
+                },
+                dot: {
+                    width: '20px',
+                    height: '20px',
+                    backgroundColor: '#DD9E59',
+                    borderRadius: '50%',
+                    flexShrink: 0,
+                    marginTop: '8px',
+                    boxShadow: '0 0 0 4px #F3E8DF, 0 0 0 6px #DD9E59',
+                },
+                content: {
+                    flex: 1,
+                    backgroundColor: '#E8D1C5',
+                    padding: '25px',
+                    borderRadius: '12px',
+                    border: '1px solid rgba(221, 158, 89, 0.3)',
+                },
+                header: {
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'flex-start',
+                    marginBottom: '15px',
+                    flexWrap: 'wrap',
+                    gap: '10px',
+                },
+                expTitle: {
+                    fontSize: '22px',
+                    fontWeight: '900',
+                    color: '#452829',
+                },
+                company: {
+                    fontSize: '16px',
+                    color: '#DD9E59',
+                    fontWeight: '500',
+                },
+                date: {
+                    fontSize: '14px',
+                    color: '#57595B',
+                    fontWeight: '500',
+                },
+                description: {
+                    fontSize: '16px',
+                    color: '#57595B',
+                    lineHeight: 1.7,
+                    marginBottom: '15px',
+                },
+                techs: {
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: '10px',
+                },
+                techTag: {
+                    backgroundColor: '#452829',
+                    color: '#F3E8DF',
+                    padding: '6px 14px',
+                    borderRadius: '20px',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                },
+            };
+
+            const Footer = () => {
+                return (
+                    <footer style={footerStyles.footer}>
+                        <div style={footerStyles.container}>
+                            <div style={footerStyles.brand}>
+                                <span style={footerStyles.logo}>
+                                    ☕ Guty.dev
+                                </span>
+                                <p style={footerStyles.tagline}>
+                                    Code. Coffee. Create.
+                                </p>
+                            </div>
+                            <div style={footerStyles.contacts}>
+                                <a
+                                    href='mailto:guty.dev@gmail.com'
+                                    style={footerStyles.link}
+                                >
+                                    guty.dev@gmail.com
+                                </a>
+                                <a
+                                    href='https://wa.me/5511999999999'
+                                    style={footerStyles.link}
+                                >
+                                    +55 11 99999-9999
+                                </a>
+                                <a
+                                    href='https://github.com/gutydev'
+                                    target='_blank'
+                                    style={footerStyles.link}
+                                >
+                                    GitHub
+                                </a>
+                                <a
+                                    href='https://linkedin.com/in/gutydev'
+                                    target='_blank'
+                                    style={footerStyles.link}
+                                >
+                                    LinkedIn
+                                </a>
+                            </div>
+                            <p style={footerStyles.copyright}>
+                                © 2024 Guty.dev. Feito com café e código.
+                            </p>
+                        </div>
+                    </footer>
+                );
+            };
+
+            const footerStyles = {
+                footer: {
+                    backgroundColor: '#452829',
+                    padding: '60px 0 40px',
+                    borderTop: '1px solid rgba(221, 158, 89, 0.2)',
+                },
+                container: {
+                    width: '80%',
+                    margin: '0 auto',
+                    textAlign: 'center',
+                },
+                brand: {
+                    marginBottom: '30px',
+                },
+                logo: {
+                    fontSize: '32px',
+                    fontWeight: '900',
+                    color: '#DD9E59',
+                },
+                tagline: {
+                    fontSize: '18px',
+                    color: 'rgba(243, 232, 223, 0.7)',
+                    marginTop: '10px',
+                },
+                contacts: {
+                    display: 'flex',
+                    justifyContent: 'center',
+                    flexWrap: 'wrap',
+                    gap: '30px',
+                    marginBottom: '30px',
+                },
+                link: {
+                    color: '#F3E8DF',
+                    textDecoration: 'none',
+                    fontSize: '16px',
+                    fontWeight: '500',
+                    transition: 'color 0.3s',
+                },
+                copyright: {
+                    fontSize: '14px',
+                    color: 'rgba(243, 232, 223, 0.5)',
+                },
+            };
+
+            const App = () => {
+                const [isModalOpen, setIsModalOpen] = useState(false);
+
+                return (
+                    <div>
+                        <style>{`
+            @keyframes blink {
+              0%, 50% { opacity: 1; }
+              51%, 100% { opacity: 0; }
+            }
+          `}</style>
+                        <Navbar onContactClick={() => setIsModalOpen(true)} />
+                        <Hero onContactClick={() => setIsModalOpen(true)} />
+                        <Technologies />
+                        <CoffeeSpill />
+                        <Projects />
+                        <Experience />
+                        <Footer />
+                        <ContactModal
+                            isOpen={isModalOpen}
+                            onClose={() => setIsModalOpen(false)}
+                        />
+                    </div>
+                );
+            };
+
+            ReactDOM.createRoot(document.getElementById('root')).render(
+                <App />,
+            );
+        </script>
+    </body>
+</html>
