@@ -1,0 +1,47 @@
+.section {
+    min-height: 120vh;
+    width: 100%;
+    background-image: url("../assets/coffeespill.png");
+    background-size: contain;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+}
+
+@media (max-width: 1400px) {
+    .section {
+        min-height: 90vh;
+    }
+}
+
+@media (max-width: 1080px) {
+    .section {
+        min-height: 70vh;
+    }
+}
+
+@media (max-width: 720px) {
+    .section {
+        min-height: 50vh;
+        background-size: contain;
+        background-position: bottom center;
+    }
+}
+
+@media (max-width: 600px) {
+    .section {
+        min-height: 40vh;
+        background-size: contain;
+        background-position: bottom center;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .section {
+        min-height: 30vh;
+        background-size: contain;
+        background-position: bottom center;
+    }
+}

@@ -1,0 +1,169 @@
+.section {
+    background-color: var(--bg);
+    padding: 100px 0;
+    position: relative;
+    border-top: solid 4px var(--accent);
+    background-image: url("../assets/background.png");
+    background-size: 50%;
+    background-repeat: repeat;
+}
+
+.container {
+    width: var(--width-container);
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.arrow {
+    background-color: var(--accent);
+    color: var(--bg);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.arrow:hover {
+    transform: scale(1.1);
+    background-color: var(--accent-2);
+}
+
+.card {
+    background-color: var(--bg-aux);
+    border: 1px solid rgba(221, 158, 89, 0.3);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    flex: 1;
+    max-width: 650px;
+}
+
+.stars {
+    color: var(--accent);
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.star {
+    margin: 0 2px;
+}
+
+.text {
+    font-size: 18px;
+    color: var(--shadow);
+    line-height: 1.7;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+.author {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.role {
+    font-size: 14px;
+    color: var(--accent-2);
+    font-weight: 500;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--accent-2);
+    border: none;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+    opacity: 0.5;
+}
+
+.dot:hover {
+    transform: scale(1.2);
+}
+
+.dotActive {
+    background-color: var(--accent);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 0;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .title {
+        font-size: 32px;
+    }
+
+    .carousel {
+        gap: 15px;
+    }
+
+    .arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .card {
+        padding: 25px;
+    }
+
+    .text {
+        font-size: 16px;
+    }
+
+    .name {
+        font-size: 16px;
+    }
+
+    .role {
+        font-size: 13px;
+    }
+}
