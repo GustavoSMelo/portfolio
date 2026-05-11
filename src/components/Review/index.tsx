@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, type FC } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import styles from "./Review.module.css";
+import styles from "./review.module.css";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 gsap.registerPlugin(ScrollTrigger);

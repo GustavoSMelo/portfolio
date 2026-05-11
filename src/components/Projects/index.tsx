@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef, type FC } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import styles from "./Projects.module.css";
-import reanimateImg from "../assets/projects/reanimate.png";
-import obra333Img from "../assets/projects/333obra.png";
-import brotoImg from "../assets/projects/broto.png";
-import infrapayImg from "../assets/projects/infrapay.png";
-import brainrotImg from "../assets/projects/brainrot_vaccine.png";
-import erickImg from "../assets/projects/erick_website.png";
-import planossauroImg from "../assets/projects/planossauro.png";
+import styles from "./projects.module.css";
+import reanimateImg from "../../assets/projects/reanimate.png";
+import obra333Img from "../../assets/projects/333obra.png";
+import brotoImg from "../../assets/projects/broto.png";
+import infrapayImg from "../../assets/projects/infrapay.png";
+import brainrotImg from "../../assets/projects/brainrot_vaccine.png";
+import erickImg from "../../assets/projects/erick_website.png";
+import planossauroImg from "../../assets/projects/planossauro.png";
 
 gsap.registerPlugin(ScrollTrigger);
 

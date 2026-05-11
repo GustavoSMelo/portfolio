@@ -1,7 +1,7 @@
 .section {
     min-height: 120vh;
     width: 100%;
-    background-image: url("../assets/coffeespill.png");
+    background-image: url("../../assets/coffeespill.png");
     background-size: contain;
     background-position: bottom center;
     background-repeat: no-repeat;

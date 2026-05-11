@@ -1,5 +1,5 @@
 import { type FC } from 'react';
-import styles from './CoffeeSpill.module.css';
+import styles from './coffeespill.module.css';
 
 const CoffeeSpill: FC = () => {
     return (

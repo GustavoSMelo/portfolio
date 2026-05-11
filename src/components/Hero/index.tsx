@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, type FC } from "react";
 import gsap from "gsap";
-import styles from "./Hero.module.css";
+import styles from "./hero.module.css";
 
 interface HeroProps {
     onContactClick: () => void;

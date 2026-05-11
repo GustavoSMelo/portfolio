@@ -1,17 +1,17 @@
-import { useState, useEffect, useRef, type FC } from 'react';
-import gsap from 'gsap';
-import styles from './Navbar.module.css';
-import cup from '../assets/cup.png';
+import { useState, useEffect, useRef, type FC } from "react";
+import gsap from "gsap";
+import styles from "./navbar.module.css";
+import cup from "../../assets/cup.png";
 
 interface NavbarProps {
     onContactClick: () => void;
 }
 
 const navLinks = [
-    { label: 'Tecnologias', href: '#technologies' },
-    { label: 'Projetos', href: '#projects' },
-    { label: 'Experiência', href: '#experience' },
-    { label: 'Avaliações', href: '#avaliacoes' },
+    { label: "Tecnologias", href: "#technologies" },
+    { label: "Projetos", href: "#projects" },
+    { label: "Experiência", href: "#experience" },
+    { label: "Avaliações", href: "#avaliacoes" },
 ];
 
 const Navbar: FC<NavbarProps> = ({ onContactClick }) => {
@@ -22,8 +22,8 @@ const Navbar: FC<NavbarProps> = ({ onContactClick }) => {
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     useEffect(() => {
@@ -35,9 +35,9 @@ const Navbar: FC<NavbarProps> = ({ onContactClick }) => {
                 y: 0,
                 duration: 0.4,
                 stagger: 0.05,
-                ease: 'power3.out',
+                ease: "power3.out",
                 delay: 0.3,
-            }
+            },
         );
 
         gsap.fromTo(
@@ -48,18 +48,18 @@ const Navbar: FC<NavbarProps> = ({ onContactClick }) => {
                 scale: 1,
                 duration: 0.4,
                 delay: 0.5,
-                ease: 'power3.out',
-            }
+                ease: "power3.out",
+            },
         );
     }, []);
 
     const handleLinkClick = () => setMenuOpen(false);
 
     return (
-        <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : ''}`}>
+        <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : ""}`}>
             <div className={styles.container}>
-                <a href='#hero' className={styles.logo}>
-                    <img src={cup} alt='Cup' className={styles.logoCoffee} />
+                <a href="#hero" className={styles.logo}>
+                    <img src={cup} alt="Cup" className={styles.logoCoffee} />
                     <span className={styles.logoText}>
                         Guty
                         <span className={styles.logoDev}>.dev</span>
@@ -68,7 +68,7 @@ const Navbar: FC<NavbarProps> = ({ onContactClick }) => {
                 </a>
                 <div
                     ref={linksRef}
-                    className={`${styles.links} ${menuOpen ? styles.linksOpen : ''}`}
+                    className={`${styles.links} ${menuOpen ? styles.linksOpen : ""}`}
                 >
                     {navLinks.map((link, i) => (
                         <a
@@ -94,16 +94,16 @@ const Navbar: FC<NavbarProps> = ({ onContactClick }) => {
                 <button
                     className={styles.hamburger}
                     onClick={() => setMenuOpen(!menuOpen)}
-                    aria-label='Menu'
+                    aria-label="Menu"
                 >
                     <span
-                        className={`${styles.hamburgerLine} ${menuOpen ? styles.hamburgerLineOpen1 : ''}`}
+                        className={`${styles.hamburgerLine} ${menuOpen ? styles.hamburgerLineOpen1 : ""}`}
                     ></span>
                     <span
-                        className={`${styles.hamburgerLine} ${menuOpen ? styles.hamburgerLineOpen2 : ''}`}
+                        className={`${styles.hamburgerLine} ${menuOpen ? styles.hamburgerLineOpen2 : ""}`}
                     ></span>
                     <span
-                        className={`${styles.hamburgerLine} ${menuOpen ? styles.hamburgerLineOpen3 : ''}`}
+                        className={`${styles.hamburgerLine} ${menuOpen ? styles.hamburgerLineOpen3 : ""}`}
                     ></span>
                 </button>
             </div>

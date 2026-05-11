@@ -1,8 +1,8 @@
 import { useEffect, useRef, type FC } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import styles from "./Footer.module.css";
-import cup from "../assets/cup.png";
+import styles from "./footer.module.css";
+import cup from "../../assets/cup.png";
 
 gsap.registerPlugin(ScrollTrigger);
 

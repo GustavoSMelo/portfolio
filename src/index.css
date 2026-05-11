@@ -6,7 +6,7 @@
     --accent-2: #dd9e59;
     --spacing-sm: 20px;
     --width-container: 80%;
-    --font-rubik: 'Rubik', sans-serif;
+    --font-rubik: "Rubik", sans-serif;
 }
 
 * {
@@ -46,8 +46,14 @@ body {
 }
 
 @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+    0%,
+    50% {
+        opacity: 1;
+    }
+    51%,
+    100% {
+        opacity: 0;
+    }
 }
 
 @media (max-width: 768px) {

@@ -3,7 +3,7 @@
     padding: 100px 0;
     position: relative;
     border-top: solid 4px var(--accent);
-    background-image: url("../assets/background.png");
+    background-image: url("../../assets/background.png");
     background-size: 50%;
     background-repeat: repeat;
 }

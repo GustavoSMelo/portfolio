@@ -1,9 +1,9 @@
 import { useState, type FC } from "react";
-import styles from "./ContactModal.module.css";
-import whatsapp from "../assets/whatsapp(1).png";
-import gmail from "../assets/gmail.png";
-import github from "../assets/github(1).png";
-import linkedin from "../assets/linkedin(1).png";
+import styles from "./contactmodal.module.css";
+import whatsapp from "../../assets/whatsapp(1).png";
+import gmail from "../../assets/gmail.png";
+import github from "../../assets/github(1).png";
+import linkedin from "../../assets/linkedin(1).png";
 
 interface ContactModalProps {
     isOpen: boolean;
