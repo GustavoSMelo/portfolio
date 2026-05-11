@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Website from "./views/Website";
 import NotFound from "./views/NotFound";
+import Terminal from "./views/Terminal";
 
 const router = createBrowserRouter([
     {
@@ -10,6 +11,10 @@ const router = createBrowserRouter([
     {
         path: "/website",
         element: <Website />,
+    },
+    {
+        path: "/terminal",
+        element: <Terminal />,
     },
     {
         path: "*",
