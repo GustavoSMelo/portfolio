@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.projectsBorder {
+    background-image: url('./assets/coffee_border.png');
+    background-position: top center;
+    background-size: 100% auto;
+    height: 30vw;
+    width: 100%;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+    .projectsBorder {
+        height: 25vw;
+        background-size: cover;
+    }
+}

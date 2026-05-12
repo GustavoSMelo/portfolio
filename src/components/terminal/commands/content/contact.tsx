@@ -1,18 +1,12 @@
 import { useCallback } from "react";
-import { styled } from "styled-components";
-import vars from "../../../../global/style/vars.style";
-
-const Container = styled.p`
-    color: ${vars.colors.aurora.green};
-    cursor: pointer;
-`;
+import styles from "./contact.module.css";
 
 const Contact = () => {
     const openContact = useCallback(() => {
         window.open('https://wa.me/5511993791209', '_blank');
     }, []);
 
-    return <Container onClick={() => openContact()}>Click here to open the whatsapp</Container>
+    return <p onClick={() => openContact()} className={styles.container}>Clique aqui para abrir o whatsapp</p>
 }
 
 export default Contact;

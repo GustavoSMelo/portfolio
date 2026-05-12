@@ -1,23 +1,20 @@
-import { PreArea } from "./style";
-import AscName from '../../../assets/name.asc.txt';
+import styles from "./asc.module.css";
+import AscName from "../../../assets/name.asc.txt";
 import { useEffect, useState } from "react";
 
 const ASCArt = () => {
-    const [name, setName] = useState('');
+    const [name, setName] = useState("");
 
     const readAscText = async () => {
-        const text = await((await fetch(AscName)).text());
+        const text = await (await fetch(AscName)).text();
         setName(text);
     };
 
     useEffect(() => {
-        readAscText()
+        readAscText();
     }, []);
 
-
-    return (
-        <PreArea>{name}</PreArea>
-    );
+    return <div className={styles.preArea}>{name}</div>;
 };
 
 export default ASCArt;

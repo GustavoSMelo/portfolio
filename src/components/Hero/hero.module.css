@@ -1,0 +1,264 @@
+.section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+    background-image: url("../../assets/background.png");
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 35%;
+    border-bottom: solid 4px var(--accent);
+}
+
+.container {
+    width: var(--width-container);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.title {
+    font-size: clamp(48px, 6vw, 72px);
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1.1;
+}
+
+.subtitleContainer {
+    height: 40px;
+    overflow: hidden;
+}
+
+.subtitle {
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 700;
+    color: var(--accent-2);
+    display: inline-block;
+}
+
+.cursor {
+    animation: blink 1s infinite;
+    margin-left: 2px;
+}
+
+.description {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--shadow);
+    max-width: 500px;
+}
+
+.cta {
+    background-color: var(--accent);
+    color: var(--bg);
+    border: none;
+    padding: 16px 40px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 240px;
+    text-align: center;
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+    animation: float 3s ease-in-out infinite;
+}
+
+.cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(69, 40, 41, 0.3);
+    animation: pulse 1.5s ease-in-out infinite, none;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(138, 43, 42, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(138, 43, 42, 0);
+    }
+}
+
+.terminalBtn {
+    background-color: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    padding: 16px 40px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 240px;
+    text-align: center;
+    transition:
+        transform 0.3s,
+        background-color 0.3s;
+    animation: float 3s ease-in-out infinite reverse;
+}
+
+.terminalBtn:hover {
+    background-color: rgba(138, 43, 42, 0.1);
+    transform: translateY(-2px);
+    animation: pulse 1.5s ease-in-out infinite, none;
+}
+
+.terminalModalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.terminalModal {
+    background-color: var(--bg);
+    padding: 32px;
+    border-radius: 12px;
+    border: 2px solid var(--accent);
+    max-width: 450px;
+    text-align: center;
+}
+
+.terminalModalText {
+    font-size: 18px;
+    color: var(--text);
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.terminalModalActions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.cancelBtn {
+    background-color: transparent;
+    color: var(--shadow);
+    border: 2px solid var(--shadow);
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.cancelBtn:hover {
+    background-color: var(--shadow);
+    color: var(--bg);
+}
+
+.accessBtn {
+    background-color: var(--accent);
+    color: var(--bg);
+    border: 2px solid var(--accent);
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.accessBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(138, 43, 42, 0.4);
+}
+
+.imageContainer {
+    width: 100%;
+    height: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-image: url("/hero.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.aiCredit {
+    font-size: 12px;
+    color: var(--shadow);
+    text-align: center;
+    margin-top: 8px;
+    opacity: 0.6;
+}
+
+.indexTop {
+    position: relative;
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .section {
+        background-size: 100vw;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+
+    .imageContainer {
+        order: -1;
+        height: 280px;
+    }
+
+    .content {
+        text-align: center;
+        align-items: center;
+    }
+
+    .description {
+        max-width: 100%;
+    }
+
+    .cta {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 16px;
+    }
+
+    .terminalBtn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .terminalModal {
+        margin: 20px;
+        max-width: calc(100% - 40px);
+    }
+
+    .terminalModalActions {
+        flex-direction: column;
+    }
+
+    .cancelBtn,
+    .accessBtn {
+        width: 100%;
+    }
+}

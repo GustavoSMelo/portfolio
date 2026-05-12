@@ -1,14 +1,14 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 const Gui = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        navigate('/website');
+        navigate("/website");
     }, []);
 
     return null;
-}
+};
 
 export default Gui;

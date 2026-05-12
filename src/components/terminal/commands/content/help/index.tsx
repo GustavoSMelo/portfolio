@@ -1,26 +1,34 @@
-import returnCommandList from '../list';
-import { Container } from './style';
+import returnCommandList from "../list";
+import styles from "./help.module.css";
 const Help = () => {
     const getAllCommands = () => {
         const commands = returnCommandList();
 
         return (
-            <Container>
+            <div className={styles.helpContainer}>
                 <thead>
                     <tr>
-                        <td className='commandNameTitle'>Name: </td>
-                        <td className='commandDescriptionTitle'>Description: </td>
+                        <td className={styles.commandDescriptionTitle}>
+                            Nome:{" "}
+                        </td>
+                        <td className={styles.commandNameTitle}>
+                            Descricao:{" "}
+                        </td>
                     </tr>
                 </thead>
                 <tbody>
                     {commands.map((command) => (
                         <tr key={command.name}>
-                            <td>{command.name}</td>
-                            <td>{command.description}</td>
+                            <td className={styles.commandDescriptionTitle}>
+                                {command.name}
+                            </td>
+                            <td className={styles.commandNameTitle}>
+                                {command.description}
+                            </td>
                         </tr>
                     ))}
                 </tbody>
-            </Container>
+            </div>
         );
     };
 

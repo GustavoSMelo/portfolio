@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+.helpContainer {
+    margin-top: 30px;
+    border-top: solid 2px var(--bg);
+
+    .commandDescriptionTitle {
+        color: var(--green);
+        padding-right: 30px;
+    }
+
+    .commandNameTitle {
+        color: var(--yellow);
+    }
+
+    td {
+        padding: 5px 0px;
+        border-bottom: dotted 1px var(--bg);
+    }
+}

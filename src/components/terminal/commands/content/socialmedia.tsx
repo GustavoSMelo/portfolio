@@ -3,10 +3,15 @@ import {
     AiOutlineWhatsApp,
     AiOutlineMail,
     AiFillGithub,
-} from 'react-icons/ai';
+} from "react-icons/ai";
 
 const SocialMedia = () => (
-    <ul>
+    <ul
+        style={{
+            borderTop: "solid 3px #fff",
+            marginTop: "20px",
+        }}
+    >
         <li>
             <AiFillLinkedin /> Linkedin:
             https://www.linkedin.com/in/gustavo-santos-melo-66092317a/
@@ -15,7 +20,7 @@ const SocialMedia = () => (
             <AiOutlineWhatsApp /> Whatsapp: +55 (11) 99379-1209
         </li>
         <li>
-            <AiOutlineMail /> Email: gsantos15569@gmail.com
+            <AiOutlineMail /> E-mail: gsantos15569@gmail.com
         </li>
         <li>
             <AiFillGithub /> Github: https://github.com/GustavoSMelo

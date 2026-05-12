@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+.terminalContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--accent);
+    color: var(--bg);
+    width: 100vw;
+    min-height: 100vh;
+    height: 100%;
+    padding: 30px;
+
+    p {
+        margin-top: 10px;
+    }
+
+    form,
+    form > label {
+        display: flex;
+        margin-top: 10px;
+        align-items: center;
+    }
+
+    form > label {
+        margin-right: 10px;
+    }
+
+    form > label > .userName {
+        color: var(--green);
+    }
+
+    form > label > .host {
+        color: var(--blue);
+    }
+
+    form > input {
+        width: 50%;
+        margin-top: 18px;
+        background-color: transparent;
+        font-size: 14pt;
+        color: var(--bg);
+        border: none;
+        color: var(--yellow);
+        font-weight: bold;
+    }
+
+    form > input:focus {
+        outline: none;
+    }
+
+    form > input:focus::placeholder {
+        color: transparent;
+    }
+
+    .mt10 {
+        margin-top: 10px;
+        border-top: solid 2px var(--bg);
+    }
+
+    .userName {
+        color: var(--green);
+    }
+
+    @media screen and (max-width: 580px) {
+        form {
+            flex-direction: column;
+            align-items: start;
+        }
+
+        form > input {
+            width: 100%;
+        }
+    }
+}
+
+.alert {
+    cursor: pointer;
+    color: var(--yellow);
+    font-weight: bold;
+}

@@ -1,22 +1,30 @@
-import { useState } from 'react';
-import GlobalContainerStyle from './global/style/global.style';
-import Routes from './routes';
-import ThemeContext from './global/context/theme.context';
-import LangContext from './global/context/language.context';
-import { ELangs } from './global/enum/langs.enum';
+import { createBrowserRouter, RouterProvider } from "react-router";
+import Website from "./views/Website";
+import NotFound from "./views/NotFound";
+import Terminal from "./views/Terminal";
+import { type FC } from "react";
 
-const App = () => {
-    const [theme, setTheme] = useState<'dark' | 'light'>('dark');
-    const [lang, setLang] = useState(ELangs.ENG);
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Website />,
+    },
+    {
+        path: "/website",
+        element: <Website />,
+    },
+    {
+        path: "/terminal",
+        element: <Terminal />,
+    },
+    {
+        path: "*",
+        element: <NotFound />,
+    },
+]);
 
-    return (
-        <ThemeContext.Provider value={{ theme, setTheme }}>
-            <LangContext.Provider value={{ lang, setLang }}>
-                <Routes />
-                <GlobalContainerStyle colorTheme={theme} />
-            </LangContext.Provider>
-        </ThemeContext.Provider>
-    );
+const App: FC = () => {
+    return <RouterProvider router={router} />;
 };
 
 export default App;

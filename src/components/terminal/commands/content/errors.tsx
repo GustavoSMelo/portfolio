@@ -1,15 +1,10 @@
-import styled from "styled-components";
-import vars from "../../../../global/style/vars.style";
-
-const ErrorContainer = styled.p`
-    color: ${vars.colors.aurora.red};
-`
+import styles from "./errors.module.css";
 
 const Error = () => (
-    <ErrorContainer>
-        command not founded, use the command `help` to see all supported
-        executables
-    </ErrorContainer>
+    <p className={styles.errorContainer}>
+        comando não encontrado, use o comando `help` para ver todos os executáveis
+        suportados
+    </p>
 );
 
 export default Error;

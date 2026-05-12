@@ -1,0 +1,195 @@
+import { useState, useEffect, useRef, type FC } from "react";
+import { useNavigate } from "react-router";
+import gsap from "gsap";
+import styles from "./hero.module.css";
+
+interface HeroProps {
+    onContactClick: () => void;
+}
+
+const roles = [
+    "Fullstack Engineer",
+    "Web Developer",
+    "Prompt Engineer",
+    "Cristão",
+    "Cosplayer/Cosmaker",
+    "Coffee Lover",
+    "Son of God",
+];
+
+const Hero: FC<HeroProps> = ({ onContactClick }) => {
+    const navigate = useNavigate();
+    const titleRef = useRef<HTMLHeadingElement>(null);
+    const subtitleRef = useRef<HTMLDivElement>(null);
+    const descRef = useRef<HTMLParagraphElement>(null);
+    const btnRef = useRef<HTMLButtonElement>(null);
+    const terminalBtnRef = useRef<HTMLButtonElement>(null);
+    const imageRef = useRef<HTMLDivElement>(null);
+
+    const [currentRole, setCurrentRole] = useState(0);
+    const [displayedText, setDisplayedText] = useState("");
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [isTerminalModalOpen, setIsTerminalModalOpen] = useState(false);
+
+    useEffect(() => {
+        const role = roles[currentRole];
+        const timeout = setTimeout(
+            () => {
+                if (!isDeleting) {
+                    if (displayedText.length < role.length) {
+                        setDisplayedText(
+                            role.slice(0, displayedText.length + 1),
+                        );
+                    } else {
+                        setTimeout(() => setIsDeleting(true), 2000);
+                    }
+                } else {
+                    if (displayedText.length > 0) {
+                        setDisplayedText(displayedText.slice(0, -1));
+                    } else {
+                        setIsDeleting(false);
+                        setCurrentRole((prev) => (prev + 1) % roles.length);
+                    }
+                }
+            },
+            isDeleting ? 50 : 100,
+        );
+
+        return () => clearTimeout(timeout);
+    }, [displayedText, isDeleting, currentRole]);
+
+    useEffect(() => {
+        const elements = [
+            titleRef.current,
+            subtitleRef.current,
+            descRef.current,
+            btnRef.current,
+            terminalBtnRef.current,
+        ].filter(Boolean);
+        const imageElement = imageRef.current;
+
+        if (elements.length > 0) {
+            gsap.fromTo(
+                elements,
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    stagger: 0.15,
+                    ease: "power3.out",
+                },
+            );
+        }
+
+        if (imageElement) {
+            gsap.fromTo(
+                imageElement,
+                { opacity: 0, scale: 0.9 },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1,
+                    delay: 0.3,
+                    ease: "power3.out",
+                },
+            );
+
+            gsap.to(imageElement, {
+                y: -40,
+                duration: 3,
+                repeat: -1,
+                yoyo: true,
+                ease: "power3.inOut",
+            });
+        }
+
+        if (elements.length > 0) {
+            gsap.to(elements, {
+                y: -12,
+                duration: 2.5,
+                repeat: -1,
+                yoyo: true,
+                ease: "power3.inOut",
+                stagger: 0.2,
+            });
+        }
+    }, []);
+
+    return (
+        <section id="hero" className={styles.section}>
+            <div className={styles.container}>
+                <div className={styles.content}>
+                    <h1 ref={titleRef} className={styles.title}>
+                        Guty.dev
+                    </h1>
+                    <div ref={subtitleRef} className={styles.subtitleContainer}>
+                        <span className={styles.subtitle}>
+                            {displayedText}
+                            <span className={styles.cursor}>|</span>
+                        </span>
+                    </div>
+                    <p ref={descRef} className={styles.description}>
+                        Desenvolvedor apaixonado por criar experiências digitais
+                        incríveis. Com sólida experiência em desenvolvimento web
+                        fullstack, combino código limpo com design intuitivo.
+                        Amante de café, fé no Pai e tecnologia, sempre buscando
+                        novos desafios para transformar ideias em realidade
+                        digital.
+                    </p>
+                    <button
+                        ref={btnRef}
+                        onClick={onContactClick}
+                        className={styles.cta}
+                    >
+                        Contate Me
+                    </button>
+                    <button
+                        ref={terminalBtnRef}
+                        onClick={() => setIsTerminalModalOpen(true)}
+                        className={styles.terminalBtn}
+                    >
+                        Site via Terminal
+                    </button>
+                    {isTerminalModalOpen && (
+                        <div
+                            className={styles.terminalModalOverlay}
+                            onClick={() => setIsTerminalModalOpen(false)}
+                        >
+                            <div
+                                className={styles.terminalModal}
+                                onClick={(e) => e.stopPropagation()}
+                            >
+                                <p className={styles.terminalModalText}>
+                                    Voce quer acessar o site ao estilo terminal
+                                    ? (site focado em usuarios
+                                    avancados/tecnicos)
+                                </p>
+                                <div className={styles.terminalModalActions}>
+                                    <button
+                                        onClick={() =>
+                                            setIsTerminalModalOpen(false)
+                                        }
+                                        className={styles.cancelBtn}
+                                    >
+                                        Cancelar
+                                    </button>
+                                    <button
+                                        onClick={() => navigate("/terminal")}
+                                        className={styles.accessBtn}
+                                    >
+                                        Acessar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
+                <div ref={imageRef} className={styles.imageContainer} />
+                {/*<p className={styles.aiCredit}>Image generated by AI</p>*/}
+            </div>
+        </section>
+    );
+};
+
+export default Hero;
