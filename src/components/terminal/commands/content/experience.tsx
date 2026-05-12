@@ -10,38 +10,39 @@ const Experience = () => (
         <li>
             <h2>Webjump</h2>
             <h3>
-                Backend PHP Developer intern <BsArrowRightShort /> Backend PHP
-                Developer Jr
+                Estagiário em Desenvolvedor PHP Backend <BsArrowRightShort />{" "}
+                Desenvolvedor PHP Backend Jr
             </h3>
             <p>
-                I interned in webjump to start my professional career in
-                software development, in this intern i learned how to framework
-                magento works <br />
-                After that i was promoted to jr. and I worked in "broto" a
-                e-commerce by Banco do Brasil with focus in agronomy
+                Eu estagiei na webjump para iniciar minha carreira profissional
+                em desenvolvimento de software, nesse estágio eu aprendi como o
+                framework magento funciona <br />
+                Após isso fui promovido a jr. e trabalhei no &quot;broto&quot; um
+                e-commerce do Banco do Brasil com foco em agronomia
             </p>
         </li>
 
         <li>
             <h2>Infracommerce</h2>
-            <h3>Fullstack Typescript developer jr.</h3>
+            <h3>Desenvolvedor Fullstack Typescript jr.</h3>
             <p>
                 <ul>
                     <li>
-                        Worked in anti-fraud, upgrading a legacy system to a new
-                        one writed in node and react.js
+                        Trabalhei em anti-fraude, atualizando um sistema legado para
+                        um novo escrito em node e react.js
                     </li>
                     <li>
-                        After this I worked in Automate billing system, that i
-                        was responsable to make backend and frontend
+                        Após isso trabalhei no sistema de automação de cobranças,
+                        onde fui responsável por fazer backend e frontend
                     </li>
                     <li>
-                        I was moved some mouths after automate billing to help
-                        the payment provider team with a lot of bugs in frontend
+                        Fui movido alguns meses após a automação de cobranças para
+                        ajudar a equipe do provedor de pagamentos com muitos bugs
+                        no frontend
                     </li>
                     <li>
-                        And I was reallocated in Credit system to help the team
-                        to finish the project inside of budget established
+                        E fui realocado no sistema de crédito para ajudar a equipe
+                        a finalizar o projeto dentro do orçamento estabelecido
                     </li>
                 </ul>
             </p>
@@ -49,26 +50,27 @@ const Experience = () => (
 
         <li>
             <h2>Point Media</h2>
-            <h3>Fullstack Typescript and PHP Developer PL</h3>
+            <h3>Desenvolvedor Fullstack Typescript e PHP PL</h3>
             <p>
                 <ul>
                     <li>
-                        Created a new software named "dynamic.ads" where u can
-                        create a tons of ads in a simple sheet
+                        Criei um novo software chamado &quot;dynamic.ads&quot; onde
+                        você pode criar toneladas de anúncios em uma simples
+                        planilha
                     </li>
                     <li>
-                        Fixing bugs and improving code quality in "replicate"
-                        software
+                        Corrigindo bugs e melhorando qualidade de código no
+                        software &quot;replicate&quot;
                     </li>
                     <li>
-                        Fixing bugs and improving code quality in "master
-                        motion" software
+                        Corrigindo bugs e melhorando qualidade de código no
+                        software &quot;master motion&quot;
                     </li>
-                    <li>Training LLMs voices in ElevenLabs</li>
-                    <li>Creating a SaaS for Reanimate.ads system</li>
+                    <li>Treinando vozes de LLMs no ElevenLabs</li>
+                    <li>Criando um SaaS para o sistema Reanimate.ads</li>
                     <li>
-                        Creating Landing Pages for Point Media clients (Nestle,
-                        Tim, Claro, Serasa, Seara)
+                        Criando Landing Pages para clientes da Point Media
+                        (Nestle, Tim, Claro, Serasa, Seara)
                     </li>
                 </ul>
             </p>

@@ -6,12 +6,12 @@ const About = () => {
                 marginTop: "20px",
             }}
         >
-            Hello there, my name is Gustavo Santos Melo and i am software
-            developer with 2y of experience <br />
-            I have done E-commerces (using Magento 2), payment system,
-            anti-fraud system, automate billing, credit and etc. <br />I work
-            with a lot of technologies, in special, with Laravel, Node.JS,
-            React.JS, React Native, PHP and others.
+            Olá, meu nome é Gustavo Santos Melo e eu sou desenvolvedor de
+            software com 2y de experiência <br />
+            Eu fiz E-commerces (usando Magento 2), sistema de pagamento,
+            sistema anti-fraude, automação de cobranças, crédito e etc. <br />Eu
+            trabalho com muitas tecnologias, em especial, com Laravel, Node.JS,
+            React.JS, React Native, PHP e outras.
         </p>
     );
 };

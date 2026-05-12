@@ -35,7 +35,7 @@ const reviews: Review[] = [
     {
         name: "Thiago Jesus",
         role: "Diretor de tecnologia @infracommerce",
-        text: "Talento nato, à frente de seu tempo. Extremamente proativo, sempre disposta a contribuir e agregar valor ao time. High potential que busca constantly novas atualizações e capacitações. Recomendo para empresas de diversos segmentos.",
+        text: "Talento nato, à frente de seu tempo. Extremamente proativo, sempre disposto a contribuir e agregar valor ao time. High potential que busca constantly novas atualizações e capacitações. Recomendo para empresas de diversos segmentos.",
         rating: 5,
     },
     {

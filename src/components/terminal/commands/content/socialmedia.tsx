@@ -20,7 +20,7 @@ const SocialMedia = () => (
             <AiOutlineWhatsApp /> Whatsapp: +55 (11) 99379-1209
         </li>
         <li>
-            <AiOutlineMail /> Email: gsantos15569@gmail.com
+            <AiOutlineMail /> E-mail: gsantos15569@gmail.com
         </li>
         <li>
             <AiFillGithub /> Github: https://github.com/GustavoSMelo

@@ -9,10 +9,10 @@ const Help = () => {
                 <thead>
                     <tr>
                         <td className={styles.commandDescriptionTitle}>
-                            Name:{" "}
+                            Nome:{" "}
                         </td>
                         <td className={styles.commandNameTitle}>
-                            Description:{" "}
+                            Descricao:{" "}
                         </td>
                     </tr>
                 </thead>

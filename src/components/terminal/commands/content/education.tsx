@@ -6,15 +6,15 @@ const Education = () => (
         }}
     >
         <ul>
-            <li>Computer Technician - UnicSul (technical course)</li>
+            <li>Técnico em Informática - UnicSul (curso técnico)</li>
             <li>
-                Analysis and System Development - Unicsul (university education)
+                Análise e Desenvolvimento de Sistemas - Unicsul (ensino superior)
             </li>
             <li>
-                Software engineering - Bras Cubas (university education -
-                coursing)
+                Engenharia de Software - Bras Cubas (ensino superior -
+                cursando)
             </li>
-            <li>English course - Wizard (2018 - 2022 / technical course)</li>
+            <li>Curso de Inglês - Wizard (2018 - 2022 / curso técnico)</li>
         </ul>
     </p>
 );

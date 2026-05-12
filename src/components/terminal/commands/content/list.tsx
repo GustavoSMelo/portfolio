@@ -14,49 +14,49 @@ const returnCommandList = (): IList[] => {
     return [
         {
             name: "help",
-            description: "List all commands available",
+            description: "Lista todos os comandos disponíveis",
             component: <Help />,
         },
         {
             name: "gui",
-            description: "Open the website using graphic user interface",
+            description: "Abre o site usando a interface gráfica do usuário",
             component: <Gui />,
         },
         {
             name: "about",
-            description: "Show a short description of me",
+            description: "Mostra uma breve descrição sobre mim",
             component: <About />,
         },
         {
             name: "education",
-            description: "Show all my academic education information",
+            description: "Mostra todas as informações da minha formação acadêmica",
             component: <Education />,
         },
         {
             name: "experience",
-            description: "Show all my professional experience information",
+            description: "Mostra todas as informações da minha experiência profissional",
             component: <Experience />,
         },
         {
             name: "socialmedia",
-            description: "Show all social media available",
+            description: "Mostra todas as redes sociais disponíveis",
             component: <SocialMedia />,
         },
         {
             name: "personal",
             description:
-                "Show some personal information, likes my hoobies, series/animes/cartoons/movies I am watching and etc",
+                "Mostra algumas informações pessoais, como meus hobbies, séries/animes/desenhos/filmes que estou assistindo, etc",
             component: <Personal />,
         },
         {
             name: "clear",
-            description: "Clear the terminal",
+            description: "Limpa o terminal",
             component: <></>,
         },
         {
             name: "contact",
             description:
-                "Enter in contact with me by whatsapp (open automatically the whatsapp)",
+                "Entre em contato comigo pelo whatsapp (abre automaticamente o whatsapp)",
             component: <Contact />,
         },
     ];
