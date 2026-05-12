@@ -76,11 +76,14 @@
 .cta:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(69, 40, 41, 0.3);
-    animation: pulse 1.5s ease-in-out infinite, none;
+    animation:
+        pulse 1.5s ease-in-out infinite,
+        none;
 }
 
 @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
     }
     50% {
@@ -89,7 +92,8 @@
 }
 
 @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
         box-shadow: 0 0 0 0 rgba(138, 43, 42, 0.4);
     }
     50% {
@@ -117,7 +121,9 @@
 .terminalBtn:hover {
     background-color: rgba(138, 43, 42, 0.1);
     transform: translateY(-2px);
-    animation: pulse 1.5s ease-in-out infinite, none;
+    animation:
+        pulse 1.5s ease-in-out infinite,
+        none;
 }
 
 .terminalModalOverlay {
@@ -185,8 +191,7 @@
 }
 
 .accessBtn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(138, 43, 42, 0.4);
+    transform: scale(1.05);
 }
 
 .imageContainer {
