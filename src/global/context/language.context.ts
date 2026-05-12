@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { ILangContext } from '../interface/language.context.interface';
+import { type ILangContext } from '../interface/language.context.interface';
 import { ELangs } from '../enum/langs.enum';
 
 const LangContext = createContext<ILangContext>({

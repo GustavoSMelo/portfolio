@@ -1,7 +1,5 @@
 import { type FC } from "react";
 import styles from "../styles/notfound.module.css";
-import Navbar from "../components/Navbar/index";
-import Footer from "../components/Footer/index";
 
 const NotFound: FC = () => {
     return (

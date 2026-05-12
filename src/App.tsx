@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import Website from "./views/Website";
 import NotFound from "./views/NotFound";
 import Terminal from "./views/Terminal";
+import { type FC } from "react";
 
 const router = createBrowserRouter([
     {
