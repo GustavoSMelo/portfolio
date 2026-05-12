@@ -6,12 +6,11 @@ const About = () => {
                 marginTop: "20px",
             }}
         >
-            Olá, meu nome é Gustavo Santos Melo e eu sou desenvolvedor de
-            software com 2y de experiência <br />
-            Eu fiz E-commerces (usando Magento 2), sistema de pagamento,
-            sistema anti-fraude, automação de cobranças, crédito e etc. <br />Eu
-            trabalho com muitas tecnologias, em especial, com Laravel, Node.JS,
-            React.JS, React Native, PHP e outras.
+            Desenvolvedor apaixonado por criar experiências digitais incríveis.
+            Com sólida experiência em desenvolvimento web fullstack, combino
+            código limpo com design intuitivo. <br /> Amante de café, fé no Pai
+            e tecnologia, sempre buscando novos desafios para transformar ideias
+            em realidade digital.
         </p>
     );
 };
