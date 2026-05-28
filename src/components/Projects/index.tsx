@@ -30,6 +30,7 @@ const projects: Record<string, Project[]> = {
                 "Desenvolvimento de plataforma SaaS (Master Motion, ReplicateAds, Dynamic) para produção de templates de mídia",
             techs: ["Laravel", "React", "MySQL", "Next.JS"],
             image: reanimateImg,
+            link: "https://reanimate.pointmedia.com.br/"
         },
         {
             title: "333 Obra",
@@ -38,6 +39,7 @@ const projects: Record<string, Project[]> = {
                 "Desenvolvimento e manutenção de bugs e features no sistema do e-commerce de 333Obra by votorantim",
             techs: ["PHP", "Magento 2", "MySQL"],
             image: obra333Img,
+            link: "https://www.333obra.com.br/"
         },
         {
             title: "Broto",
@@ -46,6 +48,7 @@ const projects: Record<string, Project[]> = {
                 "Gerenciamento de lançamento e envio de email e desenvolvimento de novas features no sistema do Broto",
             techs: ["PHP", "Magento 2", "MySQL"],
             image: brotoImg,
+            link: "https://home.broto.com.br/"
         },
         {
             title: "InfraPay",
@@ -54,6 +57,7 @@ const projects: Record<string, Project[]> = {
                 "Migração de um sistema legado e interno de antifraude para novas arquiteturas e tecnologias",
             techs: ["PHP", "Magento 2", "MySQL"],
             image: infrapayImg,
+            link: "https://www.infracommerce.lat/pt-BR/infra.pay"
         },
     ],
     personal: [
