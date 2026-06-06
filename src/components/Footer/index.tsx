@@ -110,6 +110,9 @@ const Footer: FC = () => {
                 <p className={styles.copyright} ref={copyrightRef}>
                     © {new Date().getFullYear()} Guty.dev. Feito com café, fé e
                     código. <br />
+                    CNPJ: 45.144.006/0001-70 (GUSTAVO SANTOS MELO
+                    DESENVOLVIMENTO DE SOFTWARE LTDA)
+                    <br />
                     Mateus 6:33 "Busquem, pois, em primeiro lugar o Reino de
                     Deus e a sua justiça, e todas essas coisas serão
                     acrescentadas a vocês."
