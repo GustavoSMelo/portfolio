@@ -14,8 +14,8 @@ const contacts = [
     {
         name: "WhatsApp",
         icon: whatsapp,
-        value: "+55 11 99379-1209",
-        link: "https://wa.me/5511993791209",
+        value: "+55 11 99282-7719",
+        link: "https://wa.me/5511992827719",
     },
     {
         name: "Gmail",
