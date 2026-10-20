@@ -85,10 +85,10 @@ const Footer: FC = () => {
                         gsantos15569@gmail.com
                     </a>
                     <a
-                        href="https://wa.me/5511993791209"
+                        href="https://wa.me/5511992827719"
                         className={styles.link}
                     >
-                        +55 11 99379-1209
+                        +55 11 99282-7719
                     </a>
                     <a
                         href="https://github.com/GustavoSMelo"

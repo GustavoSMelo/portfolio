@@ -17,7 +17,7 @@ const SocialMedia = () => (
             https://www.linkedin.com/in/gustavo-santos-melo-66092317a/
         </li>
         <li>
-            <AiOutlineWhatsApp /> Whatsapp: +55 (11) 99379-1209
+            <AiOutlineWhatsApp /> Whatsapp: +55 (11) 99282-7719
         </li>
         <li>
             <AiOutlineMail /> E-mail: gsantos15569@gmail.com
